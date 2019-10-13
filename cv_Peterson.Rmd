@@ -61,9 +61,9 @@ Aside
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
 if(PDF_EXPORT){
-  cat("View this CV online with links at _https://github.com/jacpete/Resume_CV_")
+  cat("")
 } else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/jacpete/Resume_CV/blob/master/cv_Peterson.pdf)")
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf)")
 }
 ```
 
@@ -196,7 +196,7 @@ print_section(position_data, 'academic_articles')
 
 
 ```{r}
-if(PDF_EXPORT){
+if(PDF_EXPORT & length(links) > 0){
   cat("
   
 Links {data-icon=link}
