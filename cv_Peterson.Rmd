@@ -33,8 +33,8 @@ source('parsing_functions.R')
 # Load csv with position info
 position_data <- read_csv('positions.csv') %>% 
   mutate_if(is.character, list(~gsub("\\n", "\n", ., fixed=TRUE))) %>% #the list is so that I can use normal fxn syntax formula with the purrr style fxn creator ~
-  mutate(start = parse_date_time(start, c("ymd", "y")), 
-         end = parse_date_time(end, c("ymd", "y"))) %>% 
+  mutate(start = parse_date_time(start, c("mdy", "y")), 
+         end = parse_date_time(end, c("mdy", "y"))) %>% 
   filter(in_cv)
 ```
 
