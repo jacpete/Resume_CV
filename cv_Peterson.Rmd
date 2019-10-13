@@ -1,0 +1,216 @@
+---
+title: "Jacob Peterson's CV"
+author: Jacob Peterson
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    css: ['css/styles.css', 'resume']
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: true
+---
+
+```{r, include=FALSE}
+#This Resume/CV was built using custom CSS and Rmd's from https://github.com/nstrayer/cv
+
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+
+library(glue)
+library(tidyverse)
+library(lubridate)
+library(fontawesome)
+
+# Set this to true to have links turned into footnotes at the end of the document
+PDF_EXPORT <- FALSE
+
+# Holds all the links that were inserted for placement at the end
+links <- c()
+
+source('parsing_functions.R')
+
+# Load csv with position info
+position_data <- read_csv('positions.csv') %>% 
+  mutate_if(is.character, list(~gsub("\\n", "\n", ., fixed=TRUE))) %>% #the list is so that I can use normal fxn syntax formula with the purrr style fxn creator ~
+  mutate(start = parse_date_time(start, c("ymd", "y")), 
+         end = parse_date_time(end, c("ymd", "y"))) %>% 
+  filter(in_cv)
+```
+
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("
+  <style>
+  :root{
+    --decorator-outer-offset-left: -6.5px;
+  }
+  </style>")
+}
+```
+
+
+Aside
+================================================================================
+
+
+![logo](homeRange.png){width=100%}
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("View this CV online with links at _https://github.com/jacpete/Resume_CV_")
+} else {
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/jacpete/Resume_CV/blob/master/cv_Peterson.pdf)")
+}
+```
+
+Contact {#contact}
+--------------------------------------------------------------------------------
+```{r include=FALSE}
+iconhgt <- 12
+```
+
+<i class="fa fa-envelope"></i> jacobmpeterson12@gmail.com  
+`r fa("twitter", fill = "#1DA1F2", height = iconhgt)` [PetersonJacobM](https://twitter.com/PetersonJacobM)  
+<i class="fa fa-github"></i> [github.com/jacpete](https://github.com/jacpete//)  
+<i class="fa fa-phone"></i> +1 (913) 449-1623
+
+
+
+Skills {#skills}
+--------------------------------------------------------------------------------
+
+
+Highly experienced with
+
+- `r fa("r-project", fill = "steelblue", height = iconhgt)` Program R 
+- <img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="12" width="12" align="top"> ArcGIS
+- `r fa("linux", fill = "black", height = iconhgt)` Linux/Bash
+- `r fa("markdown", fill = "black", height = iconhgt)` R Markdown
+
+Experience with
+
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/165px-Python-logo-notext.svg.png" alt="python" height="12" width="12" align="top"> Python
+- <img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="12" width="12" align="top"> SQL
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="12" width="12" align="top"> QGIS
+- <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12" width="12" align="top"> Netlogo  
+
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
+
+The source code is available at [github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV).
+
+Last updated on `r Sys.Date()`.
+
+
+
+Main
+================================================================================
+
+Jacob Peterson {#title}
+--------------------------------------------------------------------------------
+
+
+```{r}
+intro_text <- ""
+
+cat(sanitize_links(intro_text))
+```
+
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'education')
+```
+
+
+Research Experience {data-icon=laptop}
+--------------------------------------------------------------------------------
+
+::: aside
+
+:::
+
+```{r}
+aside <- "My research experience has allowed me to develop and hone my skills in programming, data management, statistics, GIS that will be transferable to any field."
+
+print_section(position_data, 'research_positions', aside = aside, asidePos = 3)
+```
+
+
+
+
+Field Experience {data-icon=globe-americas}
+--------------------------------------------------------------------------------
+
+
+
+```{r}
+aside <- "<br>\n<br>\n<br>\nMy field experience includes working alone and as a small team in difficult terrain in a large range of weather conditions. I have used a multiple models of Garmin and Trimble GPS's and VHF reciever systems."
+
+print_section(position_data, 'field_positions', aside = aside, asidePos = 1)
+```
+
+<br>
+
+Teaching Experience {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+
+::: aside
+I have a passion for teaching those that traditionally would consider themselves non-programmers how scripting and programming can make them more efficient at their jobs. I am also a advocate for free and open source options that allow fully reproducable science.
+:::
+
+```{r}
+print_section(position_data, 'teaching_positions')
+```
+
+
+
+Posters & Talks {data-icon=chart-line}
+--------------------------------------------------------------------------------
+
+
+```{r}
+print_section(position_data, 'posters_talks')
+```
+
+
+
+Publications {data-icon=book}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'academic_articles')
+```
+
+
+
+```{r}
+if(PDF_EXPORT){
+  cat("
+  
+Links {data-icon=link}
+--------------------------------------------------------------------------------
+
+<br>
+
+
+")
+  
+  walk2(links, 1:length(links), function(link, index){
+    print(glue('{index}. {link}'))
+  })
+}
+```
+
+
