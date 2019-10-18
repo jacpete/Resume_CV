@@ -145,15 +145,17 @@ filter_descriptions <- function(position_data, type = c("resume","cv")) {
     
     
     #reorder columns
-    currentID <- which(!is.na(.x[,descriptionCols$colID]))
+    .y <- .x
+    currentID <- keep
     newID <- order(currentID)
-    # z=1
-    for (z in seq_along(currentID)) {
-      .x[,descriptionCols$colID[newID[z]]] <- .x[,descriptionCols$colID[currentID[z]]]
-      if (descriptionCols$colID[currentID[z]] != descriptionCols$colID[newID[z]]) {
-        .x[,descriptionCols$colID[currentID[z]]] <- as.character(NA)
+    # z=newID[1]
+    for (z in newID) {
+      # z = which(newID == z)
+      .y[,descriptionCols$colID[z]] <- .x[,descriptionCols$colID[currentID[z]]]
+      if (descriptionCols$colID[currentID[z]] != descriptionCols$colID[z]) {
+        .y[,descriptionCols$colID[currentID[z]]] <- as.character(NA)
       }
     }
-    .x
+    .y
   }) %>% bind_rows()
 }    
