@@ -128,3 +128,32 @@ print_section <- function(position_data, section_id, aside=NULL, asidePos=1){
   }
 }
 
+#This function filters the descriptions from the full cv to make it more compact for the resume
+filter_descriptions <- function(position_data, type = c("resume","cv")) {
+  rowList <- map(1:nrow(position_data), ~{position_data[.x,]})
+  descriptionCols <- tibble(column = grep('^description', names(position_data), value = TRUE), 
+                            colID = grepl('^description', names(position_data)) %>% which(.), 
+                            ID = gsub('description_','',column) %>% as.integer(.))
+  
+  # .x=rowList[[4]]
+  map(rowList, ~{
+    # keep <- .x$resume_description[[1]]
+    keep <- .x[[paste0(type,"_description")]][[1]]
+    makeNA <- descriptionCols$column[!(descriptionCols$ID %in% keep)]
+    .x[,makeNA] <- NA
+    .x
+    
+    
+    #reorder columns
+    currentID <- which(!is.na(.x[,descriptionCols$colID]))
+    newID <- order(currentID)
+    # z=1
+    for (z in seq_along(currentID)) {
+      .x[,descriptionCols$colID[newID[z]]] <- .x[,descriptionCols$colID[currentID[z]]]
+      if (descriptionCols$colID[currentID[z]] != descriptionCols$colID[newID[z]]) {
+        .x[,descriptionCols$colID[currentID[z]]] <- as.character(NA)
+      }
+    }
+    .x
+  }) %>% bind_rows()
+}    
