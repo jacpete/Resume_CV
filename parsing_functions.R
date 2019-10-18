@@ -135,7 +135,7 @@ filter_descriptions <- function(position_data, type = c("resume","cv")) {
                             colID = grepl('^description', names(position_data)) %>% which(.), 
                             ID = gsub('description_','',column) %>% as.integer(.))
   
-  # .x=rowList[[4]]
+  # .x=rowList[[1]]
   map(rowList, ~{
     # keep <- .x$resume_description[[1]]
     keep <- .x[[paste0(type,"_description")]][[1]]
@@ -149,11 +149,13 @@ filter_descriptions <- function(position_data, type = c("resume","cv")) {
     currentID <- keep
     newID <- order(currentID)
     # z=newID[1]
-    for (z in newID) {
-      # z = which(newID == z)
-      .y[,descriptionCols$colID[z]] <- .x[,descriptionCols$colID[currentID[z]]]
-      if (descriptionCols$colID[currentID[z]] != descriptionCols$colID[z]) {
-        .y[,descriptionCols$colID[currentID[z]]] <- as.character(NA)
+    if (!is.na(keep)) {
+      for (z in newID) {
+        # z = which(newID == z)
+        .y[,descriptionCols$colID[z]] <- .x[,descriptionCols$colID[currentID[z]]]
+        if (descriptionCols$colID[currentID[z]] != descriptionCols$colID[z]) {
+          .y[,descriptionCols$colID[currentID[z]]] <- as.character(NA)
+        }
       }
     }
     .y
