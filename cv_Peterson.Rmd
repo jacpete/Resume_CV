@@ -31,11 +31,15 @@ links <- c()
 source('parsing_functions.R')
 
 # Load csv with position info
-position_data <- read_csv('positions.csv') %>% 
+position_data <- read_csv('positions.csv', col_types = list(cv_description = "c")) %>% 
   mutate_if(is.character, list(~gsub("\\n", "\n", ., fixed=TRUE))) %>% #the list is so that I can use normal fxn syntax formula with the purrr style fxn creator ~
   mutate(start = parse_date_time(start, c("mdy", "y")), 
-         end = parse_date_time(end, c("mdy", "y"))) %>% 
-  filter(in_cv)
+         end = parse_date_time(end, c("mdy", "y")),
+         cv_description = str_split(cv_description,","),  #make a list for the cv_description column (i.e. which descriptions should be included in the cv)
+         cv_description = map(cv_description,as.integer)) %>% 
+  filter(in_cv) %>% 
+  filter_descriptions(., type = "cv") #filter descriptions for cv (filter out resume specific columns)
+
 ```
 
 
