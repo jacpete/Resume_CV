@@ -1,0 +1,183 @@
+---
+title: Jacob Peterson's Resume"
+author: Jacob Peterson
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    css: ['css/custom_resume.css', 'css/styles.css', 'resume']
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: true
+
+---
+
+
+```{r, include=FALSE}
+#This Resume/CV was built using custom CSS and Rmd's from https://github.com/nstrayer/cv
+
+
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+library(tidyverse)
+library(glue)
+library(lubridate)
+# devtools::install_github("rstudio/fontawesome")
+library(fontawesome)
+
+# Set this to true to have links turned into footnotes at the end of the document
+PDF_EXPORT <- TRUE
+
+# Holds all the links that were inserted for placement at the end
+links <- c()
+
+source('parsing_functions.R')
+
+
+# First let's get the data, filtering to only the items tagged as
+# Resume items
+position_data <- read_csv('positions.csv', col_types = list(resume_description = "c")) %>% 
+  mutate_if(is.character, list(~gsub("\\n", "\n", ., fixed=TRUE))) %>% #the list is so that I can use normal fxn syntax formula with the purrr style fxn creator ~
+  mutate(start = parse_date_time(start, c("mdy", "y")), # parse the dates correctly
+         end = parse_date_time(end, c("mdy", "y")),
+         resume_description = str_split(resume_description,","),  #make a list for the resume_description column (i.e. which descriptions should be included in the resume)
+         resume_description = map(resume_description,as.integer)) %>%  
+  filter(in_resume) %>% 
+  mutate(
+    # Build some custom sections by collapsing others
+    section = case_when(
+      section %in% c('research_positions', 'field_positions') ~ 'positions', 
+      TRUE ~ section
+    )
+  ) %>% 
+  filter_descriptions(., type = "resume") #filter descriptions for shortened resume
+
+
+```
+
+
+Aside
+================================================================================
+
+
+![logo](homeRange.png){width=100%}
+
+Contact {#contact}
+--------------------------------------------------------------------------------
+
+
+
+```{r include=FALSE}
+iconhgt <- 12
+```
+
+<i class="fa fa-envelope"></i> jacobmpeterson12@gmail.com  
+<!-- `r fa("twitter", fill = "#1DA1F2", height = iconhgt)` [PetersonJacobM](https://twitter.com/PetersonJacobM)   -->
+<i class="fa fa-github"></i> [github.com/jacpete](https://github.com/jacpete//)  
+<i class="fa fa-phone"></i> +1 (913) 449-1623
+
+
+
+Skills {#skills}
+--------------------------------------------------------------------------------
+
+
+Highly experienced with
+
+- `r fa("r-project", fill = "steelblue", height = iconhgt)` Program R 
+- <img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="12" width="12" align="top"> ArcGIS
+- `r fa("linux", fill = "black", height = iconhgt)` Linux/Bash
+- `r fa("markdown", fill = "black", height = iconhgt)` R Markdown
+
+Experience with
+
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/165px-Python-logo-notext.svg.png" alt="python" height="12" width="12" align="top"> Python
+- <img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="12" width="12" align="top"> SQL
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="12" width="12" align="top"> QGIS
+- <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12" width="12" align="top"> Netlogo  
+
+
+Professional Communication {#Additional-interests}
+--------------------------------------------------------------------------------
+
+- I have given talks about my graduate reserach at five professional conferences in the last two years.
+- I currently have two scientific articles up for peer-review in professional journals.
+
+
+More info {#more-info}
+--------------------------------------------------------------------------------
+
+See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for more complete list of positions and experience.
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
+
+Source code: [github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV).
+
+Last updated on `r Sys.Date()`.
+
+
+Main
+================================================================================
+
+Jacob Peterson {#title}
+--------------------------------------------------------------------------------
+
+```{r}
+# intro_text <- ""
+intro_text <- "I am a trained ecologist with experience working in both ESRI and opensource GIS platforms. Through my academic pursuits, I have also gained considerable experience in a variety of statistical methodologies. I enjoy exploring datasets and solving the puzzle that comes with analysis and getting the data to answer useful questions. \n\n\\
+I am currently looking for a data science position that allows me to visualize and solve pragmatic problems using my skills in GIS and statistical analysis."
+
+
+cat(sanitize_links(intro_text))
+```
+
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+removeAdvisors <- function(df) {
+    df %>% mutate(loc = stringr::str_replace(loc, " \n([:graph:]|[:space:])*", "")) 
+}
+
+
+position_data %>% removeAdvisors() %>% print_section('education')
+```
+
+
+
+Relevant Experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+```{r}
+# asideText <- paste0(createAside(numBreaks = 0,
+#                                 heading = "Professional Communication",
+#                                 body = c("I have given talks about my graduate reserach at five professional conferences in the last two years",
+#                                          "I currently have two scientific articles up for peer-review in professional journals"),
+#                                 list = TRUE),
+#                     createAside(numBreaks = 0,
+#                                 heading = "Special Interests",
+#                                 body = c("Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists",
+#                                          "FOSS - I'm an advocate of free and open source software solutions that are easily accessible for others to use and learn from"),
+#                                 list = TRUE), collapse = "\n")
+
+asideText <- createAside(numBreaks = 1,
+                         heading = "Special Interests",
+                         body = c("Continued Learning - I am always in search of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of analysis. ",
+                                  "Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists.",
+                                  "FOSS - I am an advocate of free and open source software solutions that are easily accessible for others to use and learn from."),
+                         list = TRUE)
+
+position_data %>% removeAdvisors() %>% 
+  print_section('positions', aside = asideText, asidePos = 5)
+# position_data %>% removeAdvisors() %>% print_section('positions')
+```
+
+
+
+
