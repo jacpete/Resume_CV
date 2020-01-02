@@ -92,3 +92,14 @@ sup {
 .aside li::before {
   content: auto;
 }
+
+/* Fix extra headings in added asides */
+h2.extra-aside {
+  color: #000;
+  position: static;
+}
+
+/* Fix extra headings in added asides */
+h2.extra-aside::after {
+  display: none;
+}
