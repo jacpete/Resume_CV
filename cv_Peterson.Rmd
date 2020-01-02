@@ -78,7 +78,7 @@ iconhgt <- 12
 ```
 
 <i class="fa fa-envelope"></i> jacobmpeterson12@gmail.com  
-`r fa("twitter", fill = "#1DA1F2", height = iconhgt)` [PetersonJacobM](https://twitter.com/PetersonJacobM)  
+<!-- `r fa("twitter", fill = "#1DA1F2", height = iconhgt)` [PetersonJacobM](https://twitter.com/PetersonJacobM)   -->
 <i class="fa fa-github"></i> [github.com/jacpete](https://github.com/jacpete//)  
 <i class="fa fa-phone"></i> +1 (913) 449-1623
 
@@ -146,7 +146,9 @@ Research Experience {data-icon=laptop}
 :::
 
 ```{r}
-aside <- "<br>\n<br>\n<br>\n<br>\n<br>\n<br>\nMy research experience has allowed me to develop and hone my skills in programming, data management, statistics, GIS that will be transferable to any field."
+aside <- createAside(numBreaks = 12, 
+                     body = "My research experience has allowed me to develop and hone my skills in programming, data management, statistics, and GIS that will be transferable to any field.",
+                     list = FALSE)
 
 print_section(position_data, 'research_positions', aside = aside, asidePos = 3)
 ```
@@ -160,7 +162,9 @@ Field Experience {data-icon=globe-americas}
 
 
 ```{r}
-aside <- "<br>\n<br>\n<br>\n<br>\n<br>\n<br>\nMy field experience includes working alone and as a small team in difficult terrain in a large range of weather conditions. I have used a multiple models of Garmin and Trimble GPS's and VHF reciever systems."
+aside <- createAside(numBreaks = 6, 
+                     body = "My field experience includes working alone and as a small team in difficult terrain in a large range of weather conditions. I have used a multiple models of Garmin and Trimble GPS's and VHF reciever systems.",
+                     list = FALSE)
 
 print_section(position_data, 'field_positions', aside = aside, asidePos = 1)
 ```
