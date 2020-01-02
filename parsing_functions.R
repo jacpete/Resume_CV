@@ -64,7 +64,11 @@ print_section <- function(position_data, section_id, aside=NULL, asidePos=1){
     ungroup() %>% 
     filter(description_num == 'description_1') %>% 
     mutate(start = year(start), 
-           end = year(end)) %>% 
+           end = ifelse(
+             end > today(),
+             "Present",
+             year(end))
+           ) %>% 
     mutate(
       timeline = ifelse(
         is.na(start) | start == end,
@@ -161,3 +165,21 @@ filter_descriptions <- function(position_data, type = c("resume","cv")) {
     .y
   }) %>% bind_rows()
 }    
+
+#Creates asides with headings that match the first page asides
+createAside <- function(numBreaks = 0, heading = NULL, body, list = TRUE) {
+  brks <- rep('<br>\n', numBreaks) %>% paste0(collapse = "")
+  if (!is.null(heading)) {
+    head <- glue('<h2 class="extra-aside">{heading}</h2>\n')
+  } else {
+    head <- ""
+  }
+  if (list) {
+    midBody <- glue('<li>{body}</li>') %>% glue_collapse(sep = "\n")
+    bdy <- glue('<ul>\n{midBody}\n</ul>')
+  } else {
+    bdy <- glue_collapse(body, sep = "\n")
+  }
+  out <- glue('{brks}{head}\n{bdy}')
+  return(out)
+}
