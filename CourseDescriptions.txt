@@ -1,4 +1,4 @@
-Purdue Courses: 
+Purdue Courses:
 
 
 Statistics
@@ -9,14 +9,14 @@ Statistics
 Ecological Statistics/Modeling
      ABE 651 Environmental Informatics – Python and Bash Programming, Using Linux Environments, Data Cleaning and Error Checking, Data Visulization
      FNR 598 Big Data in Forest Research – High Performance Computing Systems, Structuring and Manipulating Big Data, Regression Trees, Random Forest Machine Learning; R Programming
-     FNR 693 Individual Based Modeling in Ecology – Agent-based modeling, Netlogo Programming (JAVA), Functional Programming, Pattern Oriented Modeling 
-     FNR 647 Quantitative Methods in Ecology - Multivariate Analysis (Hierarchical Cluster Analysis, K-means Clustering, Principle Components Analysis, Linear Discriminant Analysis, Multidimensional Scaling);  Generalized Linear Regression (Linear, Multiple Linear, Logistic, Poisson, and Polytomous Regression); Nonlinear Regression (GAMs); Generalized Linear Mixed Models; Boosted Regression Trees Machine Learning; Bayesian Modeling; Bayesian GLM and GLMM; R and JAGS Programming
+     FNR 693 Individual Based Modeling in Ecology – Agent-based modeling, Netlogo Programming (JAVA), Functional Programming, Pattern Oriented Modeling
+     FNR 647 Quantitative Methods in Ecology - Multivariate Analysis (Hierarchical Cluster Analysis, K-means Clustering, Principle Components Analysis, Linear Discriminant Analysis, Multidimensional Scaling);  Generalized Linear Regression (Linear, Multiple Linear, Logistic, Poisson, and Polytomous Regression); Generalized Linear Mixed Models; Bayesian Modeling; Bayesian GLM and GLMM; R and JAGS Programming
 
 
 
 
 
-Oklahoma State Courses: 
+Oklahoma State Courses:
 
 
 Ecological Statistics/Modeling
@@ -30,13 +30,13 @@ Ecological Statistics/Modeling
 Math
      MATH 2153 Calculus II – Integration, Series, Parametric Equations, Polar Coordinates
      MATH 2163 Calculus III – Multivariate Calculus and Vector Analysis
-     
-     
-     
+
+
+
 Colorado State Courses:
 
 Statistics
-     STAT 307 Introduction to Biostatistics - Hypothesis Tests; Correlation; Variance and Covariance; Linear Regression; ANOVA 
+     STAT 307 Introduction to Biostatistics - Hypothesis Tests; Correlation; Variance and Covariance; Linear Regression; ANOVA
 
 Ecological Statistics
      FW 471 Wildlife Data Collection and Analysis - Mark-Recapture; Distance Estimation of Population Abundance; Generalized Linear Models; Home Range Analysis
@@ -44,8 +44,5 @@ Ecological Statistics
      FW 323 Remote Sensing of Natural Resources - Raster Data Analysis; Multi-spectral Data; Raster Calculations; Continuous and Discrete Classifications
      FW 422 GIS Applications in Natural Resource Management - Relational Database Structure and Design; Interpolation Methods; Spatial Prediction; SQL and Python Programming
 
-Math 
+Math
      MATH 161 Calculus I - Limits; Differentiation; Integration
-  
-
-
