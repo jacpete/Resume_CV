@@ -46,37 +46,38 @@ strip_links_from_cols <- function(data, cols_to_strip){
 
 # Take a position dataframe and the section id desired
 # and prints the section to markdown. 
-print_section <- function(position_data, section_id, aside=NULL, asidePos=1){
-  dataFormatted <- position_data %>% 
-    filter(section == section_id) %>% 
-    arrange(desc(end)) %>% 
-    mutate(id = 1:n()) %>% 
+print_section <- function(position_data, section_id, aside=NULL, asidePos=1, type = c("resume","cv")){
+  cv_resume_description <- glue("{type}_description")
+  dataFormatted <- position_data %>%
+    filter(section == section_id) %>%
+    arrange(desc(end)) %>%
+    mutate(id = 1:n()) %>%
     pivot_longer(
       starts_with('description'),
       names_to = 'description_num',
       values_to = 'description',
       values_drop_na = FALSE
-    ) %>% filter(!is.na(description) | is.na(resume_description)) %>%
-    group_by(id) %>% 
+    ) %>% filter(!is.na(description) | is.na(!!rlang::sym(cv_resume_description))) %>%
+    group_by(id) %>%
     mutate(
       descriptions = list(description)
-    ) %>% 
-    ungroup() %>% 
-    filter(description_num == 'description_1') %>% 
-    mutate(start = year(start), 
+    ) %>%
+    ungroup() %>%
+    filter(description_num == 'description_1') %>%
+    mutate(start = year(start),
            end = ifelse(
              end > today(),
              "Present",
              year(end))
-           ) %>% 
+    ) %>%
     mutate(
       timeline = ifelse(
         is.na(start) | start == end,
         end,
         glue('{end} - {start}')
       ),
-      description_bullets = map2_chr(resume_description, descriptions, ~if_else(!is.na(.x[[1]]), paste('-', .y, collapse = '\n'), "\n"))
-    ) %>% 
+      description_bullets = map2_chr(!!rlang::sym(cv_resume_description), descriptions, ~if_else(!is.na(.x[[1]]), paste('-', .y, collapse = '\n'), "\n"))
+    ) %>%
     strip_links_from_cols(c('title', 'description_bullets')) %>% 
     mutate_all(~ifelse(is.na(.), 'N/A', .)) 
   

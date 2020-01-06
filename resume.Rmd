@@ -141,12 +141,9 @@ Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
-removeAdvisors <- function(df) {
-    df %>% mutate(loc = stringr::str_replace(loc, " \n([:graph:]|[:space:])*", "")) 
-}
 
 
-position_data %>% removeAdvisors() %>% print_section('education')
+position_data %>% removeAdvisors() %>% print_section('education', type = "resume")
 ```
 
 
@@ -174,7 +171,7 @@ asideText <- createAside(numBreaks = 1,
                          list = TRUE)
 
 position_data %>% removeAdvisors() %>% 
-  print_section('positions', aside = asideText, asidePos = 5)
+  print_section('positions', aside = asideText, asidePos = 5, type = "resume")
 # position_data %>% removeAdvisors() %>% print_section('positions')
 ```
 
