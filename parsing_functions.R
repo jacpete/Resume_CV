@@ -55,8 +55,8 @@ print_section <- function(position_data, section_id, aside=NULL, asidePos=1){
       starts_with('description'),
       names_to = 'description_num',
       values_to = 'description',
-      values_drop_na = TRUE
-    ) %>% 
+      values_drop_na = FALSE
+    ) %>% filter(!is.na(description) | is.na(resume_description)) %>%
     group_by(id) %>% 
     mutate(
       descriptions = list(description)
@@ -75,7 +75,7 @@ print_section <- function(position_data, section_id, aside=NULL, asidePos=1){
         end,
         glue('{end} - {start}')
       ),
-      description_bullets = map_chr(descriptions, ~paste('-', ., collapse = '\n')),
+      description_bullets = map2_chr(resume_description, descriptions, ~if_else(!is.na(.x[[1]]), paste('-', .y, collapse = '\n'), "\n"))
     ) %>% 
     strip_links_from_cols(c('title', 'description_bullets')) %>% 
     mutate_all(~ifelse(is.na(.), 'N/A', .)) 
@@ -109,21 +109,16 @@ print_section <- function(position_data, section_id, aside=NULL, asidePos=1){
           "\n\n\n",
         )
       
-      # if (.x == asidePos) {
-      #   out <- glue(
-      #     "::: aside\n",
-      #     aside, "\n",
-      #     ":::\n\n", 
-      #     out, "\n"
-      #   )
-      # }
       if (.x == asidePos) {
         out <- glue(
-          out, "\n",
-          "::: aside\n",
-          aside, "\n",
-          ":::\n\n"
+          out, addAside(aside), "\n\n"
         )
+        # out <- glue(
+        #   out, "\n",
+        #   "::: aside\n",
+        #   aside, "\n",
+        #   ":::\n\n"
+        # )
       }
       out
     }) 
@@ -131,6 +126,15 @@ print_section <- function(position_data, section_id, aside=NULL, asidePos=1){
    cat(prnt)
   }
 }
+
+addAside <- function(aside) {
+  glue("\n",
+       "::: aside\n",
+       aside, "\n",
+       ":::\n\n"
+  )
+}
+
 
 #This function filters the descriptions from the full cv to make it more compact for the resume
 filter_descriptions <- function(position_data, type = c("resume","cv")) {
@@ -182,4 +186,9 @@ createAside <- function(numBreaks = 0, heading = NULL, body, list = TRUE) {
   }
   out <- glue('{brks}{head}\n{bdy}')
   return(out)
+}
+
+#Removes Advisors from positions df
+removeAdvisors <- function(df) {
+  df %>% mutate(loc = stringr::str_replace(loc, " \n([:graph:]|[:space:])*", "")) 
 }
