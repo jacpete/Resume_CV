@@ -100,7 +100,7 @@ Experience with
 Professional Communication {#Additional-interests}
 --------------------------------------------------------------------------------
 
-- I have given talks about my graduate reserach at five professional conferences in the last two years.
+- I have given talks about my graduate research at five professional conferences in the last two years.
 - I currently have two scientific articles up for peer-review in professional journals.
 
 
@@ -129,7 +129,7 @@ Jacob Peterson {#title}
 ```{r}
 # intro_text <- ""
 intro_text <- "I am a trained ecologist with experience working in both ESRI and opensource GIS platforms. Through my academic pursuits, I have also gained considerable experience in a variety of statistical methodologies and have become proficient in R programming. I enjoy exploring datasets and solving the puzzle that comes with analysis and getting the data to answer useful questions. \n\n\\
-I am currently looking for a data science position that allows me to visualize and solve pragmatic problems using my skills in GIS and statistical analysis."
+I am currently looking for a data science position that allows me to visualize and solve pragmatic problems leveraging my skills in GIS and statistical analysis."
 
 
 cat(sanitize_links(intro_text))
