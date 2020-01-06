@@ -113,7 +113,7 @@ See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.co
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
+Made w/ [**pagedown**](https://github.com/rstudio/pagedown).
 
 Source code: [github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV).
 
@@ -133,17 +133,6 @@ I am currently looking for a data science position that allows me to visualize a
 
 
 cat(sanitize_links(intro_text))
-```
-
-
-
-Education {data-icon=graduation-cap data-concise=true}
---------------------------------------------------------------------------------
-
-```{r}
-
-
-position_data %>% removeAdvisors() %>% print_section('education', type = "resume")
 ```
 
 
@@ -171,10 +160,65 @@ asideText <- createAside(numBreaks = 1,
                          list = TRUE)
 
 position_data %>% removeAdvisors() %>% 
-  print_section('positions', aside = asideText, asidePos = 5, type = "resume")
+  print_section('positions', aside = asideText, asidePos = 8, type = "resume")
 # position_data %>% removeAdvisors() %>% print_section('positions')
+
+```
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+position_data %>% removeAdvisors() %>% print_section('education', type = "resume")
 ```
 
 
 
 
+
+```{r}
+#Disclaimer
+# addAside(glue("Made w/ [**pagedown**](https://github.com/rstudio/pagedown). \n\n
+# Source code:\n[github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV)\n\n
+# Last updated on {Sys.Date()}."))
+
+# addAside('<p id=newdisclaimer>Made w/ [**pagedown**](https://github.com/rstudio/pagedown).</p>')
+
+
+
+# ### My Great Heading {#custom-id}
+# The HTML looks like this:
+# 
+# <h3 id="custom-id">My Great Heading</h3>
+```
+
+<!-- <div class="section level1 aside" id="aside2"> -->
+
+<!-- <div class="section level2" id="newdisclaimer"> -->
+
+<!-- <p id="newdisclaimer"> -->
+
+<!-- Made w/ [**pagedown**](https://github.com/rstudio/pagedown). -->
+<!-- <br>Source code: -->
+<!-- <br>[github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV). -->
+<!-- <br>Last updated on `r Sys.Date()`. -->
+
+<!-- </p> -->
+
+<!-- </div> -->
+
+<!-- </div> -->
+
+
+<!-- Aside -->
+<!-- ================================================================================ -->
+
+<!-- Disclaimer {#disclaimer} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- Made w/ [**pagedown**](https://github.com/rstudio/pagedown).  -->
+
+<!-- Source code: [github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV). -->
+
+<!-- Last updated on `r Sys.Date()`. -->
