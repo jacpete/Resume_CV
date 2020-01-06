@@ -134,7 +134,7 @@ Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, 'education')
+print_section(position_data, 'education', type = "cv")
 ```
 
 
@@ -150,7 +150,7 @@ aside <- createAside(numBreaks = 12,
                      body = "My research experience has allowed me to develop and hone my skills in programming, data management, statistics, and GIS that will be transferable to any field.",
                      list = FALSE)
 
-print_section(position_data, 'research_positions', aside = aside, asidePos = 3)
+print_section(position_data, 'research_positions', aside = aside, asidePos = 3, type = "cv")
 ```
 
 
@@ -166,7 +166,7 @@ aside <- createAside(numBreaks = 6,
                      body = "My field experience includes working alone and as a small team in difficult terrain in a large range of weather conditions. I have used a multiple models of Garmin and Trimble GPS's and VHF reciever systems.",
                      list = FALSE)
 
-print_section(position_data, 'field_positions', aside = aside, asidePos = 1)
+print_section(position_data, 'field_positions', aside = aside, asidePos = 1, type = "cv")
 ```
 
 <br>
@@ -179,7 +179,7 @@ I have a passion for teaching those that traditionally would consider themselves
 :::
 
 ```{r}
-print_section(position_data, 'teaching_positions')
+print_section(position_data, 'teaching_positions', type = "cv")
 ```
 
 
@@ -189,7 +189,7 @@ Posters & Talks {data-icon=chart-line}
 
 
 ```{r}
-print_section(position_data, 'posters_talks')
+print_section(position_data, 'posters_talks', type = "cv")
 ```
 
 
@@ -198,7 +198,7 @@ Publications {data-icon=book}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, 'academic_articles')
+print_section(position_data, 'academic_articles', type = "cv")
 ```
 
 

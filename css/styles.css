@@ -93,13 +93,41 @@ sup {
   content: auto;
 }
 
-/* Fix extra headings in added asides */
+/* Fix extra headings in body asides */
 h2.extra-aside {
   color: #000;
   position: static;
 }
 
-/* Fix extra headings in added asides */
 h2.extra-aside::after {
   display: none;
 }
+
+/* Shorten upper margin on description list */
+[data-id="main"] ul {
+  margin: 0.05in 0 0.08in;
+}
+
+/* Add new disclaimer id */
+/* #newdisclaimer{
+  position: absolute;
+  bottom: 0%;
+  right: var(--sidebar-horizontal-padding);
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 1.1;
+  text-align: right;
+  color: #777;
+} */
+
+/* #newdisclaimer code{
+  color: #666;
+  font-family: "Source Code Pro";
+  font-weight: 400;
+  font-style: normal;
+} */
+
+/* #aside2{ */
+  /* position: absolute; /* for disclaimer */ */
+  /* height: var(--content-area-height); */
+/* } */
