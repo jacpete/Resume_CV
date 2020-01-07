@@ -105,7 +105,7 @@ h2.extra-aside::after {
 
 /* Shorten upper margin on description list */
 [data-id="main"] ul {
-  margin: 0.05in 0 0.08in;
+  margin: 0.0in 0 0.08in;
 }
 
 /* Add new disclaimer id */
