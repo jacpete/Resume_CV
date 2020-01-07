@@ -108,6 +108,32 @@ h2.extra-aside::after {
   margin: 0.0in 0 0.08in;
 }
 
+/* Create new skills class to mimic default skills ID from pagedown*/
+.skills{
+  line-height: 1.5;
+}
+
+.skills ul{
+  margin: 0.05in 0 0.15in;
+  padding: 0;
+  padding-inline-start: 16px;
+}
+
+.skills ul ul{
+  margin: 0 0 0;
+}
+
+.skills ul li{
+  margin-left: 1em;
+  text-indent: -0.5em;
+}
+
+.skills ul ul li{
+  /* margin: 0 0 0; */
+  margin-left: 0em;
+  text-indent: -0.5em;
+}
+
 /* Add new disclaimer id */
 /* #newdisclaimer{
   position: absolute;
