@@ -103,6 +103,12 @@ h2.extra-aside::after {
   display: none;
 }
 
+/* chenge line indents on extra aside lists to make it easier to read */
+ul.extra-aside li{
+  margin-left: 0.0em;
+  text-indent: -0.5em;
+}
+
 /* Shorten upper margin on description list */
 [data-id="main"] ul {
   margin: 0.0in 0 0.08in;
@@ -124,7 +130,7 @@ h2.extra-aside::after {
 }
 
 .skills ul li{
-  margin-left: 1em;
+  margin-left: 0em;
   text-indent: -0.5em;
 }
 
