@@ -97,7 +97,7 @@ Experience with
 - <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12" width="12" align="top"> Netlogo  
 
 
-Professional Communication {#Additional-interests}
+Professional Communication {#professional-communication}
 --------------------------------------------------------------------------------
 
 - I have given talks about my graduate research at five professional conferences in the last two years.
@@ -107,7 +107,7 @@ Professional Communication {#Additional-interests}
 More info {#more-info}
 --------------------------------------------------------------------------------
 
-See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for more complete list of positions and experience.
+See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for a more complete list of positions and experience.
 
 
 Disclaimer {#disclaimer}
@@ -128,8 +128,8 @@ Jacob Peterson {#title}
 
 ```{r}
 # intro_text <- ""
-intro_text <- "I am a trained ecologist with experience working in both ESRI and opensource GIS platforms. Through my academic pursuits, I have also gained considerable experience in a variety of statistical methodologies and have become proficient in R programming. I enjoy exploring datasets and solving the puzzle that comes with analysis and getting the data to answer useful questions. \n\n\\
-I am currently looking for a data science position that allows me to visualize and solve pragmatic problems leveraging my skills in GIS and statistical analysis."
+intro_text <- "I am a trained ecologist with experience working in both ESRI and opensource GIS platforms. Through my academic pursuits, I have also gained considerable experience in a variety of statistical methodologies and have become proficient in R programming. I enjoy exploring datasets, solving the puzzle that comes with analysis, and getting the data to answer useful questions.\n
+I am currently looking for a data science position that allows me to visualize and solve pragmatic problems while leveraging my skills in GIS and statistical analysis."
 
 
 cat(sanitize_links(intro_text))
@@ -137,7 +137,7 @@ cat(sanitize_links(intro_text))
 
 
 
-Relevant Experience {data-icon=suitcase}
+Professional Experience {data-icon=suitcase}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -166,6 +166,7 @@ position_data %>% removeAdvisors() %>%
 ```
 
 
+
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
@@ -174,7 +175,12 @@ position_data %>% removeAdvisors() %>% print_section('education', type = "resume
 ```
 
 
+Teaching Experience {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
 
+```{r}
+position_data %>% removeAdvisors() %>% print_section('teaching_positions', type = "resume")
+```
 
 
 ```{r}
