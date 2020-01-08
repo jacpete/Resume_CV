@@ -202,5 +202,17 @@ reorderManually <- function(df) {
   bind_rows(keepChronological,reorder)
 }
 
+#Returns fancy formated paragraph with spacing options using CSS classes .Reg, .First, and .Last
+fancyParagraphSpacing <- function(str) {
+  str %>% str_split(pattern = "<br>\\n|\\n|<br>") %>% 
+    `[[`(1) %>% tibble(text = .) %>% 
+    mutate(id = 1:n(), 
+           out = glue('<p class="Reg"> {text} </p>\n'),
+           out = case_when(id == n() ~ str_replace(out, 'Reg', 'Reg Last'), 
+                           id == 1 ~ str_replace(out, 'Reg', 'Reg First'),
+                           TRUE ~ as.character(out))) %>% 
+    glue_data('{out}', .sep = "\\n")
+}
+  
 
 
