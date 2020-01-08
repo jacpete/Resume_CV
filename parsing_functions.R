@@ -140,12 +140,16 @@ addAside <- function(aside) {
 
 #This function filters the descriptions from the full cv to make it more compact for the resume
 filter_descriptions <- function(position_data, type = c("resume","cv")) {
+  #seperate data frame into list of single row dataframes
   rowList <- map(1:nrow(position_data), ~{position_data[.x,]})
+  
+  #Create reference table for description columns
   descriptionCols <- tibble(column = grep('^description', names(position_data), value = TRUE), 
                             colID = grepl('^description', names(position_data)) %>% which(.), 
                             ID = gsub('description_','',column) %>% as.integer(.))
   
-  # .x=rowList[[1]]
+  .x=rowList[[4]]#temporary
+  #filter out and reorder description columns
   map(rowList, ~{
     # keep <- .x$resume_description[[1]]
     keep <- .x[[paste0(type,"_description")]][[1]]
@@ -158,19 +162,17 @@ filter_descriptions <- function(position_data, type = c("resume","cv")) {
     .y <- .x
     currentID <- keep
     newID <- order(currentID)
-    # z=newID[1]
-    if (!is.na(keep)) {
+    #if 
+    if (all(!is.na(keep))) {
+      .y[,descriptionCols$colID[currentID[newID]]] <- as.character(NA) #make all descriptions in new table NA and ready for ordered input
       for (z in newID) {
-        # z = which(newID == z)
+        # z=newID[1]#temporary
         .y[,descriptionCols$colID[z]] <- .x[,descriptionCols$colID[currentID[z]]]
-        if (descriptionCols$colID[currentID[z]] != descriptionCols$colID[z]) {
-          .y[,descriptionCols$colID[currentID[z]]] <- as.character(NA)
-        }
       }
     }
     .y
   }) %>% bind_rows()
-}    
+}   
 
 #Creates asides with headings that match the first page asides
 createAside <- function(numBreaks = 0, heading = NULL, body, list = TRUE) {
