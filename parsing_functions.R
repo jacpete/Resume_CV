@@ -51,6 +51,7 @@ print_section <- function(position_data, section_id, aside=NULL, asidePos=1, typ
   dataFormatted <- position_data %>%
     filter(section == section_id) %>%
     arrange(desc(end)) %>%
+    reorderManually() %>%  
     mutate(id = 1:n()) %>%
     pivot_longer(
       starts_with('description'),
@@ -180,8 +181,8 @@ createAside <- function(numBreaks = 0, heading = NULL, body, list = TRUE) {
     head <- ""
   }
   if (list) {
-    midBody <- glue('<li>{body}</li>') %>% glue_collapse(sep = "\n")
-    bdy <- glue('<ul>\n{midBody}\n</ul>')
+    midBody <- glue('<li class="extra-aside" > {body}</li>') %>% glue_collapse(sep = "\n")
+    bdy <- glue('<ul class="extra-aside" > \n{midBody}\n</ul>')
   } else {
     bdy <- glue_collapse(body, sep = "\n")
   }
@@ -193,3 +194,13 @@ createAside <- function(numBreaks = 0, heading = NULL, body, list = TRUE) {
 removeAdvisors <- function(df) {
   df %>% mutate(loc = stringr::str_replace(loc, " \n([:graph:]|[:space:])*", "")) 
 }
+
+#Reorders positions out of chronological order using `manualOrder` column
+reorderManually <- function(df) {
+  keepChronological <- df %>% filter(is.na(manualOrder))
+  reorder <- df %>% filter(!is.na(manualOrder)) %>% arrange(desc(manualOrder))
+  bind_rows(keepChronological,reorder)
+}
+
+
+
