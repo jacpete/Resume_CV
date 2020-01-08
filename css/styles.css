@@ -103,6 +103,10 @@ h2.extra-aside::after {
   display: none;
 }
 
+h2 {
+  line-height: 1rem;
+}
+
 /* chenge line indents on extra aside lists to make it easier to read */
 ul.extra-aside li{
   margin-left: 0.0em;
