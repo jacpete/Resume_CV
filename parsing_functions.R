@@ -175,7 +175,7 @@ filter_descriptions <- function(position_data, type = c("resume","cv")) {
 }   
 
 #Creates asides with headings that match the first page asides
-createAside <- function(numBreaks = 0, heading = NULL, body, list = TRUE) {
+createAside <- function(numBreaks = 0, heading = NULL, body, list = TRUE, bullet = FALSE) {
   brks <- rep('<br>\n', numBreaks) %>% paste0(collapse = "")
   if (!is.null(heading)) {
     head <- glue('<h2 class="extra-aside">{heading}</h2>\n')
@@ -183,7 +183,12 @@ createAside <- function(numBreaks = 0, heading = NULL, body, list = TRUE) {
     head <- ""
   }
   if (list) {
-    midBody <- glue('<li class="extra-aside" > {body}</li>') %>% glue_collapse(sep = "\n")
+    if (bullet) {
+      midBody <- glue('<li class="extra-aside bullet" > {body}</li>') %>% glue_collapse(sep = "\n")
+    }
+    else {
+      midBody <- glue('<li class="extra-aside" > {body}</li>') %>% glue_collapse(sep = "\n")
+    }
     bdy <- glue('<ul class="extra-aside" > \n{midBody}\n</ul>')
   } else {
     bdy <- glue_collapse(body, sep = "\n")

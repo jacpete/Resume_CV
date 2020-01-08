@@ -148,6 +148,10 @@ ul.extra-aside li{
   list-style-type: disc;
 }
 
+li.bullet {
+  list-style-type: disc;
+}
+
 .bullet ul ul li {
   list-style-type: circle;
 }
