@@ -143,6 +143,23 @@ ul.extra-aside li{
   text-indent: -0.5em;
 }
 
+/* Paragraph spacing see fancy paragraph function in parsing_functions.R*/
+p.Reg {
+  /* line-height: 1.5rem;  */ /* For between all lines in paragraph*/
+  margin-top: 0.0em; /* For between all paragraphs*/
+  margin-bottom: 0.5em; /* For between all paragraphs*/
+}
+
+p.First {
+  margin-top: 0.75em;
+}
+
+p.Last {
+  margin-bottom: 1.0em; /* For between all paragraphs*/
+}
+
+
+
 /* Add new disclaimer id */
 /* #newdisclaimer{
   position: absolute;
