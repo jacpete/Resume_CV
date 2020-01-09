@@ -94,6 +94,8 @@ Highly experienced with
 - <img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="12" width="12" align="top"> ArcGIS
 - `r fa("linux", fill = "black", height = iconhgt)` Linux/Bash
 - `r fa("markdown", fill = "black", height = iconhgt)` R Markdown
+- `r fa("github", fill = "black", height = iconhgt)` Github
+- `r fa("chart-line", fill = "black", height = iconhgt)` Statistical Analysis
 
 Experience with
 
@@ -101,7 +103,7 @@ Experience with
 - <img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="12" width="12" align="top"> SQL
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="12" width="12" align="top"> QGIS
 - <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12" width="12" align="top"> Netlogo  
-
+- <img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="12" width="12" align="top"> HTML/CSS  
 
 
 Disclaimer {#disclaimer}

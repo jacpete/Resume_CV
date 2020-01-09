@@ -76,8 +76,6 @@ iconhgt <- 12
 <i class="fa fa-github"></i> [github.com/jacpete](https://github.com/jacpete//)  
 <i class="fa fa-phone"></i> +1 (913) 449-1623
 
-<br>
-<br>
 
 Software Skills {.skills}
 --------------------------------------------------------------------------------
@@ -100,8 +98,6 @@ Experience with
 - <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12" width="12" align="top"> Netlogo [6+ Months]  
 - <img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="12" width="12" align="top"> HTML/CSS [4+ Months]  
 
-<br>
-<br>
 
 Technical Skills {.skills .bullet}
 --------------------------------------------------------------------------------
@@ -115,16 +111,13 @@ Technical Skills {.skills .bullet}
   - Categorical Analysis
   - Multivariate Analysis
   - Machine Learning
-  <!-- - Bayesian Statistics -->
+  - Bayesian Statistics
 - Spatial Analysis
   - Geospatial Operations
   - Interpolation
   - Space Use Models
   - Movement Models
 
-
-<br>
-<br>
 
 
 Professional Skills {.skills .bullet}
@@ -191,6 +184,12 @@ asideText <- paste0(createAside(numBreaks = 2,
                                 list = TRUE, bullet = TRUE),
                     createAside(numBreaks = 5, heading = "More Info",
                                 body = 'See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for a more complete list of positions and experience.',
+                                list = FALSE),
+                    createAside(numBreaks = 17, 
+                                body = glue(
+                                  '<p class="disclaimer">Made w/ <a href="https://github.com/rstudio/pagedown" ><strong>pagedown</strong></a>.</p>
+                                  <p class="disclaimer">Source code: <a href="https://github.com/jacpete/Resume_CV">github.com/jacpete/Resume_CV</a>.</p>
+                                  <p class="disclaimer">Last updated on {Sys.Date()}.</p>'), 
                                 list = FALSE), collapse = "\n")
 
 # asideText <- createAside(numBreaks = 1,
@@ -224,39 +223,9 @@ Teaching Experience {data-icon=chalkboard-teacher}
 #                      body = "I have a passion for teaching others how scripting and programming can make themselves more efficient at their jobs. I am also a advocate for free and open source options that allow fully reproducable science.",
 #                      list = FALSE)
 
-# aside <- createAside(numBreaks = 6,
-#                      body = '<p> See full CV at <a href="https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf"> github.com/jacpete/Resume_CV/ cv_Peterson.pdf</a> for a more complete list of positions and experience.</p>',
-#                      list = FALSE)
-
-# aside <- createAside(numBreaks = 10, heading = "More Info",
-#                      body = 'See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for a more complete list of positions and experience.',
-#                      list = FALSE)
-
 # position_data %>% removeAdvisors() %>% print_section('teaching_positions', aside = aside, asidePos = 1, type = "resume")
 position_data %>% removeAdvisors() %>% print_section('teaching_positions', type = "resume")
 ```
 
 
-```{r}
-createAside(numBreaks = 23, 
-            body = glue(
-            '<p class="disclaimer">Made w/ <a href="https://github.com/rstudio/pagedown" ><strong>pagedown</strong></a>.</p>
-            <p class="disclaimer">Source code: <a href="https://github.com/jacpete/Resume_CV">github.com/jacpete/Resume_CV</a>.</p>
-            <p class="disclaimer">Last updated on {Sys.Date()}.</p>'), 
-            list = FALSE) %>% addAside()
-```
 
-<!-- More info {#more-info} -->
-<!-- -------------------------------------------------------------------------------- -->
-
-<!-- <p> See full CV at <a href="https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf"> github.com/jacpete/Resume_CV/ cv_Peterson.pdf</a> for a more complete list of positions and experience.</p> -->
-
-
-<!-- Disclaimer {#disclaimer} -->
-<!-- -------------------------------------------------------------------------------- -->
-
-<!-- Made w/ [**pagedown**](https://github.com/rstudio/pagedown). -->
-
-<!-- Source code: [github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV). -->
-
-<!-- Last updated on `r Sys.Date()`. -->
