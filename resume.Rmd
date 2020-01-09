@@ -60,7 +60,7 @@ Aside
 ================================================================================
 
 
-![logo](homeRange.png){width=100%}
+<!-- ![logo](homeRange.png){width=100%} -->
 
 Contact {#contact}
 --------------------------------------------------------------------------------
@@ -78,30 +78,65 @@ iconhgt <- 12
 
 
 
-Skills {#skills}
+Software Skills {.skills}
 --------------------------------------------------------------------------------
 
 
 Highly experienced with
 
-- `r fa("r-project", fill = "steelblue", height = iconhgt)` Program R 
-- <img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="12" width="12" align="top"> ArcGIS
-- `r fa("linux", fill = "black", height = iconhgt)` Linux/Bash
-- `r fa("markdown", fill = "black", height = iconhgt)` R Markdown
+- `r fa("r-project", fill = "steelblue", height = iconhgt)` R [5+ years]
+- <img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="12" width="12" align="top"> ArcGIS [8+ Years]
+- `r fa("linux", fill = "black", height = iconhgt)` Linux/Bash [4+ years]
+- `r fa("markdown", fill = "black", height = iconhgt)` R Markdown [1+ Years]
+- `r fa("github", fill = "black", height = iconhgt)` Github [4+ Years]
+- <img src="https://img.icons8.com/wired/64/000000/server.png" alt="css" height="12" width="12" align="top"> HPC Systems [4+ Years]
 
 Experience with
 
-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/165px-Python-logo-notext.svg.png" alt="python" height="12" width="12" align="top"> Python
-- <img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="12" width="12" align="top"> SQL
-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="12" width="12" align="top"> QGIS
-- <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12" width="12" align="top"> Netlogo  
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/165px-Python-logo-notext.svg.png" alt="python" height="12" width="12" align="top"> Python [3+ Years]
+- <img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="12" width="12" align="top"> SQL [5+ Years]
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="12" width="12" align="top"> QGIS [2+ Years]
+- <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12" width="12" align="top"> Netlogo [6+ Months]  
+- <img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="12" width="12" align="top"> HTML/CSS [4+ Months]  
 
 
-Professional Communication {#professional-communication}
+Technical Skills {.skills .bullet}
 --------------------------------------------------------------------------------
 
-- I have given talks about my graduate research at five professional conferences in the last two years.
-- I currently have two scientific articles up for peer-review in professional journals.
+- Data Management
+- Data Cleaning/Unit Testing
+- Data Visualization
+- Data Mining
+- Statistical Analysis
+  - GLMs/GLMMs
+  - Categorical Analysis
+  - Multivariate Analysis
+  - Machine Learning
+  <!-- - Bayesian Statistics -->
+- Spatial Analysis
+  - Geospatial Operations
+  - Interpolation
+  - Space Use Models
+  - Movement Models
+
+    
+Professional Skills {.skills .bullet}
+--------------------------------------------------------------------------------
+
+- Critical thinking
+- Independent learning and researching
+- Project management
+- Working effectively as a team
+- Collaboration with external agencies and stakeholders
+- Prioritize stakeholder needs in development
+- Oral and written communication adapted to target audiences
+
+
+<!-- Professional Communication {#professional-communication} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- - I have given talks about my graduate research at five professional conferences in the last two years. -->
+<!-- - I currently have two scientific articles up for peer-review in professional journals. -->
 
 
 More info {#more-info}
@@ -128,11 +163,12 @@ Jacob Peterson {#title}
 
 ```{r}
 # intro_text <- ""
-intro_text <- "I am a trained ecologist with experience working in both ESRI and opensource GIS platforms. Through my academic pursuits, I have also gained considerable experience in a variety of statistical methodologies and have become proficient in R programming. I enjoy exploring datasets, solving the puzzle that comes with analysis, and getting the data to answer useful questions.\n
-I am currently looking for a data science position that allows me to visualize and solve pragmatic problems while leveraging my skills in GIS and statistical analysis."
+# intro_text <- "I am a trained ecologist with experience working in both ESRI and opensource GIS platforms. Through my academic pursuits, I have also gained considerable experience in a variety of statistical methodologies and have become proficient in R programming. I enjoy exploring datasets, solving the puzzle that comes with analysis, and getting the data to answer useful questions.\n
+# I am currently looking for a data science position that allows me to visualize and solve pragmatic problems while leveraging my skills in GIS and statistical analysis."
+intro_text <- "My career has given me experience applying a broad range of statistical methodologies and honed me into expert in R programming. Academic research has prepared me  to think critically, learn new skills independently and quickly, managage complex projects, and collaborate within teams to acheive results. I enjoy exploring datasets, solving the puzzles that accompany analysis, and transforming raw data into the solutions used to answer important questions.
+I am currently looking for a data science position that allows me to solve pragmatic problems while leveraging my skills in data management and statistical analysis."
 
-
-cat(sanitize_links(intro_text))
+intro_text %>% fancyParagraphSpacing()
 ```
 
 
@@ -141,26 +177,28 @@ Professional Experience {data-icon=suitcase}
 --------------------------------------------------------------------------------
 
 ```{r}
-# asideText <- paste0(createAside(numBreaks = 0,
-#                                 heading = "Professional Communication",
-#                                 body = c("I have given talks about my graduate reserach at five professional conferences in the last two years",
-#                                          "I currently have two scientific articles up for peer-review in professional journals"),
-#                                 list = TRUE),
-#                     createAside(numBreaks = 0,
-#                                 heading = "Special Interests",
-#                                 body = c("Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists",
-#                                          "FOSS - I'm an advocate of free and open source software solutions that are easily accessible for others to use and learn from"),
-#                                 list = TRUE), collapse = "\n")
-
-asideText <- createAside(numBreaks = 1,
-                         heading = "Special Interests",
-                         body = c("Continued Learning - I am always in search of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of analysis. ",
+asideText <- paste0(createAside(numBreaks = 4,
+                                heading = "Professional Communication",
+                                body = c("I have given talks about my graduate research at five professional conferences in the last two years",
+                                         "I currently have two scientific articles up for peer-review in professional journals"),
+                                list = TRUE),
+                    createAside(numBreaks = 6,
+                                heading = "Additional Interests",
+                                body =  c("Continued Learning - I am always in search of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of analysis. ",
                                   "Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists.",
-                                  "FOSS - I am an advocate of free and open source software solutions that are easily accessible for others to use and learn from."),
-                         list = TRUE)
+                                  "FOSS - I am an advocate for free and open source options that allow fully reproducable science and help others learn.",
+                                  "Teaching - I have a passion for teaching others how scripting and programming can make themselves more efficient at their jobs."),
+                                list = TRUE, bullet = TRUE), collapse = "\n")
+
+# asideText <- createAside(numBreaks = 1,
+#                          heading = "Special Interests",
+#                          body = c("Continued Learning - I am always in search of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of analysis. ",
+#                                   "Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists.",
+#                                   "FOSS - I am an advocate of free and open source software solutions that are easily accessible for others to use and learn from."),
+#                          list = TRUE)
 
 position_data %>% removeAdvisors() %>% 
-  print_section('positions', aside = asideText, asidePos = 8, type = "resume")
+  print_section('positions', aside = asideText, asidePos = 7, type = "resume")
 # position_data %>% removeAdvisors() %>% print_section('positions')
 
 ```
@@ -179,6 +217,11 @@ Teaching Experience {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 
 ```{r}
+# aside <- createAside(numBreaks = 3,
+#                      body = "I have a passion for teaching others how scripting and programming can make themselves more efficient at their jobs. I am also a advocate for free and open source options that allow fully reproducable science.",
+#                      list = FALSE)
+
+# position_data %>% removeAdvisors() %>% print_section('teaching_positions', aside = aside, asidePos = 1, type = "resume")
 position_data %>% removeAdvisors() %>% print_section('teaching_positions', type = "resume")
 ```
 
