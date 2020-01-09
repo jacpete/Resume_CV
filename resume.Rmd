@@ -158,7 +158,7 @@ Jacob Peterson {#title}
 # intro_text <- ""
 # intro_text <- "I am a trained ecologist with experience working in both ESRI and opensource GIS platforms. Through my academic pursuits, I have also gained considerable experience in a variety of statistical methodologies and have become proficient in R programming. I enjoy exploring datasets, solving the puzzle that comes with analysis, and getting the data to answer useful questions.\n
 # I am currently looking for a data science position that allows me to visualize and solve pragmatic problems while leveraging my skills in GIS and statistical analysis."
-intro_text <- "My career has given me experience applying a broad range of statistical methodologies and honed me into expert in R programming. Academic research has prepared me  to think critically, learn new skills independently and quickly, managage complex projects, and collaborate within teams to acheive results. I enjoy exploring datasets, solving the puzzles that accompany analysis, and transforming raw data into the solutions used to answer important questions.
+intro_text <- "My career has given me experience applying a broad range of statistical methodologies and honed me into expert in R programming. Academic research has prepared me  to think critically, learn new skills independently and quickly, manage complex projects, and collaborate within teams to achieve results. I enjoy exploring datasets, solving the puzzles that accompany analysis, and transforming raw data into the solutions used to answer important questions.
 I am currently looking for a data science position that allows me to solve pragmatic problems while leveraging my skills in data management and statistical analysis."
 
 intro_text %>% fancyParagraphSpacing()
@@ -179,7 +179,7 @@ asideText <- paste0(createAside(numBreaks = 2,
                                 heading = "Additional Interests",
                                 body =  c("Continued Learning - I am always in pursuit of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of analysis. ",
                                   "Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists.",
-                                  "FOSS - I am an advocate for free and open source options that allow fully reproducable science and help others learn.",
+                                  "FOSS - I am an advocate for free and open source options that allow fully reproducible science and help others learn.",
                                   "Teaching - I have a passion for helping others discover how scripting and programming can make themselves more efficient."),
                                 list = TRUE, bullet = TRUE),
                     createAside(numBreaks = 5, heading = "More Info",
