@@ -157,7 +157,7 @@ print_section(position_data, 'research_positions', aside = aside, asidePos = 2, 
 
 
 
-Field Experience {data-icon=globe-americas}
+Field Experience {data-icon=globe-americas }
 --------------------------------------------------------------------------------
 
 
@@ -173,7 +173,7 @@ print_section(position_data, 'field_positions', aside = aside, asidePos = 1, typ
 <br>
 
 
-Teaching Experience {data-icon=chalkboard-teacher}
+Teaching Experience {data-icon=chalkboard-teacher  .forcePageBreak}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -196,7 +196,7 @@ print_section(position_data, 'posters_talks', type = "cv")
 
 
 
-Publications {data-icon=book}
+Publications {data-icon=book  .forcePageBreak}
 --------------------------------------------------------------------------------
 
 ```{r}
