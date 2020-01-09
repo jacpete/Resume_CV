@@ -186,3 +186,8 @@ p.disclaimer code{
   font-weight: 400;
   font-style: normal;
 }
+
+/* Class to force page break before starting section */
+div.forcePageBreak {
+  break-before: page;
+}
