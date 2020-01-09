@@ -171,7 +171,7 @@ p.Last {
   margin-bottom: 1.0em; /* For between all paragraphs*/
 }
 
-/* Disclaimer Text */
+/* Disclaimer class instead of ID */
 p.disclaimer{
   font-size: 0.75rem;
   font-style: italic;
@@ -186,26 +186,3 @@ p.disclaimer code{
   font-weight: 400;
   font-style: normal;
 }
-/* Add new disclaimer id */
-/* #newdisclaimer{
-  position: absolute;
-  bottom: 0%;
-  right: var(--sidebar-horizontal-padding);
-  font-size: 0.75rem;
-  font-style: italic;
-  line-height: 1.1;
-  text-align: right;
-  color: #777;
-} */
-
-/* #newdisclaimer code{
-  color: #666;
-  font-family: "Source Code Pro";
-  font-weight: 400;
-  font-style: normal;
-} */
-
-/* #aside2{ */
-  /* position: absolute; /* for disclaimer */ */
-  /* height: var(--content-area-height); */
-/* } */

@@ -76,7 +76,8 @@ iconhgt <- 12
 <i class="fa fa-github"></i> [github.com/jacpete](https://github.com/jacpete//)  
 <i class="fa fa-phone"></i> +1 (913) 449-1623
 
-
+<br>
+<br>
 
 Software Skills {.skills}
 --------------------------------------------------------------------------------
@@ -99,6 +100,8 @@ Experience with
 - <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12" width="12" align="top"> Netlogo [6+ Months]  
 - <img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="12" width="12" align="top"> HTML/CSS [4+ Months]  
 
+<br>
+<br>
 
 Technical Skills {.skills .bullet}
 --------------------------------------------------------------------------------
@@ -119,40 +122,37 @@ Technical Skills {.skills .bullet}
   - Space Use Models
   - Movement Models
 
-    
+
+<br>
+<br>
+
+
 Professional Skills {.skills .bullet}
 --------------------------------------------------------------------------------
 
 - Critical thinking
 - Independent learning and researching
 - Project management
-- Working effectively as a team
+- Working effectively in a team
 - Collaboration with external agencies and stakeholders
 - Prioritize stakeholder needs in development
 - Oral and written communication adapted to target audiences
 
 
-<!-- Professional Communication {#professional-communication} -->
+<!-- More info {#more-info} -->
 <!-- -------------------------------------------------------------------------------- -->
 
-<!-- - I have given talks about my graduate research at five professional conferences in the last two years. -->
-<!-- - I currently have two scientific articles up for peer-review in professional journals. -->
+<!-- See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for a more complete list of positions and experience. -->
 
 
-More info {#more-info}
---------------------------------------------------------------------------------
+<!-- Disclaimer {#disclaimer} -->
+<!-- -------------------------------------------------------------------------------- -->
 
-See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for a more complete list of positions and experience.
+<!-- Made w/ [**pagedown**](https://github.com/rstudio/pagedown). -->
 
+<!-- Source code: [github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV). -->
 
-Disclaimer {#disclaimer}
---------------------------------------------------------------------------------
-
-Made w/ [**pagedown**](https://github.com/rstudio/pagedown).
-
-Source code: [github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV).
-
-Last updated on `r Sys.Date()`.
+<!-- Last updated on `r Sys.Date()`. -->
 
 
 Main
@@ -177,18 +177,21 @@ Professional Experience {data-icon=suitcase}
 --------------------------------------------------------------------------------
 
 ```{r}
-asideText <- paste0(createAside(numBreaks = 4,
+asideText <- paste0(createAside(numBreaks = 2,
                                 heading = "Professional Communication",
                                 body = c("I have given talks about my graduate research at five professional conferences in the last two years",
                                          "I currently have two scientific articles up for peer-review in professional journals"),
                                 list = TRUE),
-                    createAside(numBreaks = 6,
+                    createAside(numBreaks = 5,
                                 heading = "Additional Interests",
-                                body =  c("Continued Learning - I am always in search of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of analysis. ",
+                                body =  c("Continued Learning - I am always in pursuit of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of analysis. ",
                                   "Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists.",
                                   "FOSS - I am an advocate for free and open source options that allow fully reproducable science and help others learn.",
-                                  "Teaching - I have a passion for teaching others how scripting and programming can make themselves more efficient at their jobs."),
-                                list = TRUE, bullet = TRUE), collapse = "\n")
+                                  "Teaching - I have a passion for helping others discover how scripting and programming can make themselves more efficient."),
+                                list = TRUE, bullet = TRUE),
+                    createAside(numBreaks = 5, heading = "More Info",
+                                body = 'See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for a more complete list of positions and experience.',
+                                list = FALSE), collapse = "\n")
 
 # asideText <- createAside(numBreaks = 1,
 #                          heading = "Special Interests",
@@ -221,52 +224,38 @@ Teaching Experience {data-icon=chalkboard-teacher}
 #                      body = "I have a passion for teaching others how scripting and programming can make themselves more efficient at their jobs. I am also a advocate for free and open source options that allow fully reproducable science.",
 #                      list = FALSE)
 
+# aside <- createAside(numBreaks = 6,
+#                      body = '<p> See full CV at <a href="https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf"> github.com/jacpete/Resume_CV/ cv_Peterson.pdf</a> for a more complete list of positions and experience.</p>',
+#                      list = FALSE)
+
+# aside <- createAside(numBreaks = 10, heading = "More Info",
+#                      body = 'See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for a more complete list of positions and experience.',
+#                      list = FALSE)
+
 # position_data %>% removeAdvisors() %>% print_section('teaching_positions', aside = aside, asidePos = 1, type = "resume")
 position_data %>% removeAdvisors() %>% print_section('teaching_positions', type = "resume")
 ```
 
 
 ```{r}
-#Disclaimer
-# addAside(glue("Made w/ [**pagedown**](https://github.com/rstudio/pagedown). \n\n
-# Source code:\n[github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV)\n\n
-# Last updated on {Sys.Date()}."))
-
-# addAside('<p id=newdisclaimer>Made w/ [**pagedown**](https://github.com/rstudio/pagedown).</p>')
-
-
-
-# ### My Great Heading {#custom-id}
-# The HTML looks like this:
-# 
-# <h3 id="custom-id">My Great Heading</h3>
+createAside(numBreaks = 23, 
+            body = glue(
+            '<p class="disclaimer">Made w/ <a href="https://github.com/rstudio/pagedown" ><strong>pagedown</strong></a>.</p>
+            <p class="disclaimer">Source code: <a href="https://github.com/jacpete/Resume_CV">github.com/jacpete/Resume_CV</a>.</p>
+            <p class="disclaimer">Last updated on {Sys.Date()}.</p>'), 
+            list = FALSE) %>% addAside()
 ```
 
-<!-- <div class="section level1 aside" id="aside2"> -->
+<!-- More info {#more-info} -->
+<!-- -------------------------------------------------------------------------------- -->
 
-<!-- <div class="section level2" id="newdisclaimer"> -->
+<!-- <p> See full CV at <a href="https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf"> github.com/jacpete/Resume_CV/ cv_Peterson.pdf</a> for a more complete list of positions and experience.</p> -->
 
-<!-- <p id="newdisclaimer"> -->
-
-<!-- Made w/ [**pagedown**](https://github.com/rstudio/pagedown). -->
-<!-- <br>Source code: -->
-<!-- <br>[github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV). -->
-<!-- <br>Last updated on `r Sys.Date()`. -->
-
-<!-- </p> -->
-
-<!-- </div> -->
-
-<!-- </div> -->
-
-
-<!-- Aside -->
-<!-- ================================================================================ -->
 
 <!-- Disclaimer {#disclaimer} -->
 <!-- -------------------------------------------------------------------------------- -->
 
-<!-- Made w/ [**pagedown**](https://github.com/rstudio/pagedown).  -->
+<!-- Made w/ [**pagedown**](https://github.com/rstudio/pagedown). -->
 
 <!-- Source code: [github.com/jacpete/Resume_CV](https://github.com/jacpete/Resume_CV). -->
 
