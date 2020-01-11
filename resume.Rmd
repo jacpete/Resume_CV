@@ -177,10 +177,10 @@ asideText <- paste0(createAside(numBreaks = 2,
                                 list = TRUE, bullet = TRUE),
                     createAside(numBreaks = 5,
                                 heading = "Additional Interests",
-                                body =  c("Continued Learning - I am always in pursuit of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of analysis. ",
-                                  "Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists.",
-                                  "FOSS - I am an advocate for free and open source options that allow fully reproducible science and help others learn.",
-                                  "Teaching - I have a passion for helping others discover how scripting and programming can make themselves more efficient."),
+                                body =  c("Continued Learning - I am always in pursuit of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of my analyses. ",
+                                          "Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists.",
+                                          "FOSS - I am an advocate for free and open source options that allow fully reproducible science and help others learn.",
+                                          "Teaching/Mentoring - I have a passion for helping others discover how scripting and programming can make themselves more efficient."),
                                 list = TRUE, bullet = TRUE),
                     createAside(numBreaks = 5, heading = "More Info",
                                 body = 'See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for a more complete list of positions and experience.',
@@ -200,7 +200,7 @@ asideText <- paste0(createAside(numBreaks = 2,
 #                          list = TRUE)
 
 position_data %>% removeAdvisors() %>% 
-  print_section('positions', aside = asideText, asidePos = 7, type = "resume")
+  print_section('positions', aside = asideText, asidePos = 6, type = "resume")
 # position_data %>% removeAdvisors() %>% print_section('positions')
 
 ```
