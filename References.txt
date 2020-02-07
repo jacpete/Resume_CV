@@ -1,19 +1,33 @@
 Julia Earl
   Assistant Professor
+  Louisiana Tech University
   1 Adams Blvd
   P.O. Box 3179
   Ruston, LA 71272
   (318) 257-2667
+  jearl@latech.edu
 
 Sam Fuhlendorf
   Regents Professor
   Groendyke Chair in Wildlife Management
+  Oklahoma State University
   008C Agricultural Hall
   Stillwater, OK 74078
   (405) 744-9646
+  sam.fuhlendorf@okstate.edu
 
 Patrick Zollner
   Professor of Wildlife Science
+  Purdue University
   195 Marsteller Street
   West Lafayette, IN 47907-2033
   (765) 496-9495
+  pzollner@purdue.edu
+
+Landon Jones
+  Post Doc Research Associate
+  Purdue University
+  715 W. State Street
+  West Lafayette, IN 47906
+  jone1797@purdue.edu
+  
