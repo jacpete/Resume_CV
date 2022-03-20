@@ -98,6 +98,35 @@ Experience with
 - <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12pt" width="12pt" align="top"> Netlogo [6+ Months]  
 - <img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="12pt" width="12pt" align="top"> HTML/CSS [4+ Months]  
 
+```{r, results='asis'}
+
+iconhgt <- '12pt'
+
+tibble::tribble(
+  ~Software,         ~Years, ~Rank5,  ~Include,  ~IconHTML,
+  "R",               2015,   5,        TRUE,     as.character(fontawesome::fa("r-project", fill = "steelblue", height = iconhgt)),
+  "Git/GitHub",      2016,   5,        TRUE,     as.character(fontawesome::fa("github", fill = "black", height = iconhgt)),
+  "Linux/Bash",      2016,   3.5,      TRUE,     as.character(fontawesome::fa("linux", fill = "black", height = iconhgt)),
+  "Rmarkdown",       2018,   4,        TRUE,     as.character(fontawesome::fa("markdown", fill = "black", height = iconhgt)),
+  "Python",          2018,   3.5,      TRUE,     as.character(glue::glue('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/165px-Python-logo-notext.svg.png" alt="python" height="{iconhgt}" width="{iconhgt}" align="top">')), 
+  "SQL",             2018,   3.5,      TRUE,     as.character(glue::glue('<img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="{iconhgt}" width="{iconhgt}" align="top">')),
+  "HTML/CSS",        2019,   3,        TRUE,     as.character(glue::glue('<img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="{iconhgt}" width="{iconhgt}" align="top">')),
+  "Shiny",           2020,   3,        TRUE,     as.character(fontawesome::fa("r-project", fill = "steelblue", height = iconhgt)),
+  "JavaScript",      2020,   2.5,      TRUE,     as.character(fontawesome::fa("r-project", fill = "steelblue", height = iconhgt)),
+  "ArcGIS",          2016,   4,        FALSE,    as.character(glue::glue('<img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="{iconhgt}" width="{iconhgt}" align="top">')),
+  "HPC",             2018,   4,        TRUE,     as.character(glue::glue('<img src="https://img.icons8.com/wired/64/000000/server.png" alt="css" height="{iconhgt}" width="{iconhgt}" align="top"> ')),
+  "QGIS",            2017,   3.5,      FALSE,    as.character(glue::glue('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="{iconhgt}" width="{iconhgt}" align="top">')),
+  "Arrow",           2021,   3,        TRUE,     as.character(fontawesome::fa("r-project", fill = "steelblue", height = iconhgt))
+) %>% dplyr::mutate(
+  Years = lubridate::year(Sys.Date()) - Years,
+  Bullet = glue::glue("*  {IconHTML} {Software}  ")
+) %>% 
+  dplyr::filter(Include) %>% 
+  dplyr::pull(Bullet) %>% glue::glue_collapse(sep = "\n")
+
+```
+
+
 
 Technical Skills {.skills .bullet}
 --------------------------------------------------------------------------------
