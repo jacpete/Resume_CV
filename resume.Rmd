@@ -68,11 +68,11 @@ Contact {#contact}
 
 
 ```{r include=FALSE}
-iconhgt <- 12
+iconhgt <- '12pt'
 ```
 
 <i class="fa fa-envelope"></i> [JacobPetersonMSc@gmail.com](mailto:jacobpetersonmsc@gmail.com)  
-<!-- `r fa("twitter", fill = "#1DA1F2", height = iconhgt)` [PetersonJacobM](https://twitter.com/PetersonJacobM)   -->
+<!-- `r fa("twitter", fill = "#1DA1F2", height = iconhgt, width = iconhgt)` [PetersonJacobM](https://twitter.com/PetersonJacobM)   -->
 <i class="fa fa-github"></i> [github.com/jacpete](https://github.com/jacpete//)  
 <i class="fa fa-phone"></i> +1 (913) 449-1623
 
@@ -83,20 +83,20 @@ Software Skills {.skills}
 
 Highly experienced with
 
-- `r fa("r-project", fill = "steelblue", height = iconhgt)` R [5+ years]
-- <img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="12" width="12" align="top"> ArcGIS [8+ Years]
-- `r fa("linux", fill = "black", height = iconhgt)` Linux/Bash [4+ years]
-- `r fa("markdown", fill = "black", height = iconhgt)` R Markdown [1+ Years]
-- `r fa("github", fill = "black", height = iconhgt)` Github [4+ Years]
-- <img src="https://img.icons8.com/wired/64/000000/server.png" alt="css" height="12" width="12" align="top"> HPC Systems [4+ Years]
+- `r fa("r-project", fill = "steelblue", height = iconhgt, width = iconhgt)` R [5+ years]
+- <img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="12pt" width="12pt" align="top"> ArcGIS [8+ Years]
+- `r fa("linux", fill = "black", height = iconhgt, width = iconhgt)` Linux/Bash [4+ years]
+- `r fa("markdown", fill = "black", height = iconhgt, width = iconhgt)` R Markdown [1+ Years]
+- `r fa("github", fill = "black", height = iconhgt, width = iconhgt)` Github [4+ Years]
+- <img src="https://img.icons8.com/wired/64/000000/server.png" alt="css" height="12pt" width="12pt" align="top"> HPC Systems [4+ Years]
 
 Experience with
 
-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/165px-Python-logo-notext.svg.png" alt="python" height="12" width="12" align="top"> Python [3+ Years]
-- <img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="12" width="12" align="top"> SQL [5+ Years]
-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="12" width="12" align="top"> QGIS [2+ Years]
-- <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12" width="12" align="top"> Netlogo [6+ Months]  
-- <img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="12" width="12" align="top"> HTML/CSS [4+ Months]  
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/165px-Python-logo-notext.svg.png" alt="python" height="12pt" width="12pt" align="top"> Python [3+ Years]
+<!-- - <img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="12pt" width="12pt" align="top"> SQL [5+ Years] -->
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="12pt" width="12pt" align="top"> QGIS [2+ Years]
+- <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12pt" width="12pt" align="top"> Netlogo [6+ Months]  
+- <img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="12pt" width="12pt" align="top"> HTML/CSS [4+ Months]  
 
 
 Technical Skills {.skills .bullet}
