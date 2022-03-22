@@ -7,11 +7,12 @@ output:
     css: ['css/custom_resume.css', 'css/styles.css', 'resume']
     # set it to true for a self-contained HTML page but it'll take longer to render
     self_contained: true
+    keep_md: true
 
 ---
 
 
-```{r, include=FALSE}
+```{r setup, include=FALSE}
 #This Resume/CV was built using custom CSS and Rmd's from https://github.com/nstrayer/cv
 
 
@@ -80,47 +81,33 @@ iconhgt <- '12pt'
 Software Skills {.skills}
 --------------------------------------------------------------------------------
 
-
-Highly experienced with
-
-- `r fa("r-project", fill = "steelblue", height = iconhgt, width = iconhgt)` R [5+ years]
-- <img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="12pt" width="12pt" align="top"> ArcGIS [8+ Years]
-- `r fa("linux", fill = "black", height = iconhgt, width = iconhgt)` Linux/Bash [4+ years]
-- `r fa("markdown", fill = "black", height = iconhgt, width = iconhgt)` R Markdown [1+ Years]
-- `r fa("github", fill = "black", height = iconhgt, width = iconhgt)` Github [4+ Years]
-- <img src="https://img.icons8.com/wired/64/000000/server.png" alt="css" height="12pt" width="12pt" align="top"> HPC Systems [4+ Years]
-
-Experience with
-
-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/165px-Python-logo-notext.svg.png" alt="python" height="12pt" width="12pt" align="top"> Python [3+ Years]
-<!-- - <img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="12pt" width="12pt" align="top"> SQL [5+ Years] -->
-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="12pt" width="12pt" align="top"> QGIS [2+ Years]
-- <img src="https://netlogoweb.org/assets/images/4ee488fc0c5c07fad84cf1c24e44556d-desktopicon.png" alt="netlogo" height="12pt" width="12pt" align="top"> Netlogo [6+ Months]  
-- <img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="12pt" width="12pt" align="top"> HTML/CSS [4+ Months]  
-
 ```{r, results='asis'}
 
-iconhgt <- '12pt'
+iconhgt <- 12
+scaleIconSize <- function(base=12, scale = 1, unit="pt") {
+  return(paste0(as.character(base*scale), unit))
+}
 
 tibble::tribble(
   ~Software,         ~Years, ~Rank5,  ~Include,  ~IconHTML,
-  "R",               2015,   5,        TRUE,     as.character(fontawesome::fa("r-project", fill = "steelblue", height = iconhgt)),
-  "Git/GitHub",      2016,   5,        TRUE,     as.character(fontawesome::fa("github", fill = "black", height = iconhgt)),
-  "Linux/Bash",      2016,   3.5,      TRUE,     as.character(fontawesome::fa("linux", fill = "black", height = iconhgt)),
-  "Rmarkdown",       2018,   4,        TRUE,     as.character(fontawesome::fa("markdown", fill = "black", height = iconhgt)),
-  "Python",          2018,   3.5,      TRUE,     as.character(glue::glue('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/165px-Python-logo-notext.svg.png" alt="python" height="{iconhgt}" width="{iconhgt}" align="top">')), 
-  "SQL",             2018,   3.5,      TRUE,     as.character(glue::glue('<img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="{iconhgt}" width="{iconhgt}" align="top">')),
-  "HTML/CSS",        2019,   3,        TRUE,     as.character(glue::glue('<img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="{iconhgt}" width="{iconhgt}" align="top">')),
-  "Shiny",           2020,   3,        TRUE,     as.character(fontawesome::fa("r-project", fill = "steelblue", height = iconhgt)),
-  "JavaScript",      2020,   2.5,      TRUE,     as.character(fontawesome::fa("r-project", fill = "steelblue", height = iconhgt)),
-  "ArcGIS",          2016,   4,        FALSE,    as.character(glue::glue('<img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="{iconhgt}" width="{iconhgt}" align="top">')),
-  "HPC",             2018,   4,        TRUE,     as.character(glue::glue('<img src="https://img.icons8.com/wired/64/000000/server.png" alt="css" height="{iconhgt}" width="{iconhgt}" align="top"> ')),
-  "QGIS",            2017,   3.5,      FALSE,    as.character(glue::glue('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="{iconhgt}" width="{iconhgt}" align="top">')),
-  "Arrow",           2021,   3,        TRUE,     as.character(fontawesome::fa("r-project", fill = "steelblue", height = iconhgt))
+  "R",               2015,   5,        TRUE,     paste0("`", as.character(fontawesome::fa("r-project", fill = "steelblue", height = scaleIconSize(base=iconhgt))), "`{=html}"),
+  "Git/GitHub",      2016,   5,        TRUE,     paste0("`", as.character(fontawesome::fa("github", fill = "black", height = scaleIconSize(base=iconhgt))), "`{=html}"),
+  "Linux/Bash",      2016,   3.5,      TRUE,     paste0("`", as.character(fontawesome::fa("linux", fill = "black", height = scaleIconSize(base=iconhgt))), "`{=html}"),
+  "Rmarkdown",       2018,   4,        TRUE,     paste0("`", as.character(fontawesome::fa("markdown", fill = "black", height = scaleIconSize(base=iconhgt))), "`{=html}"),
+  "Python",          2018,   3.5,      TRUE,     as.character(glue::glue('<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="python" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')), 
+  "SQL",             2018,   3.5,      TRUE,     as.character(glue::glue('<img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')),
+  "HTML/CSS",        2019,   3,        TRUE,     as.character(glue::glue('<img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')),
+  "Shiny",           2020,   3,        TRUE,     as.character(glue::glue('<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/shiny.png" alt="css" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')),
+  "JavaScript",      2020,   2.5,      TRUE,     paste0("`", as.character(fontawesome::fa("r-project", fill = "steelblue", height = scaleIconSize(base=iconhgt))), "`{=html}"),
+  "ArcGIS",          2016,   4,        FALSE,    as.character(glue::glue('<img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')),
+  "HPC",             2018,   4,        TRUE,     as.character(glue::glue('<img src="https://img.icons8.com/wired/64/000000/server.png" alt="css" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top"> ')),
+  "QGIS",            2017,   3.5,      FALSE,    as.character(glue::glue('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')),
+  "Arrow",           2021,   3,        TRUE,     as.character(glue::glue('<img src="https://arrow.apache.org/docs/_static/arrow.png" alt="qgis" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt, scale = 2)}" align="top">'))
 ) %>% dplyr::mutate(
   Years = lubridate::year(Sys.Date()) - Years,
-  Bullet = glue::glue("*  {IconHTML} {Software}  ")
+  Bullet = glue::glue("*  {IconHTML} {Software} [{Years} years]  ")
 ) %>% 
+  dplyr::arrange(dplyr::desc(Years), Software) %>% 
   dplyr::filter(Include) %>% 
   dplyr::pull(Bullet) %>% glue::glue_collapse(sep = "\n")
 
