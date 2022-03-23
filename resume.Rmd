@@ -47,7 +47,7 @@ position_data <- read_csv('positions.csv', col_types = list(resume_description =
   mutate(
     # Build some custom sections by collapsing others
     section = case_when(
-      section %in% c('research_positions', 'field_positions') ~ 'positions', 
+      section %in% c('professional_positions', 'research_positions', 'field_positions') ~ 'positions', 
       TRUE ~ section
     )
   ) %>% 
@@ -72,9 +72,8 @@ Contact {#contact}
 iconhgt <- '12pt'
 ```
 
-<i class="fa fa-envelope"></i> [JacobPetersonMSc@gmail.com](mailto:jacobpetersonmsc@gmail.com)  
-<!-- `r fa("twitter", fill = "#1DA1F2", height = iconhgt, width = iconhgt)` [PetersonJacobM](https://twitter.com/PetersonJacobM)   -->
-<i class="fa fa-github"></i> [github.com/jacpete](https://github.com/jacpete//)  
+<i class="fa fa-envelope"></i> [JacobMPeterson12@gmail.com](mailto:jacobmpeterson12@gmail.com)  
+<i class="fa fa-github"></i> [github.com/jacpete](https://github.com/jacpete/)  
 <i class="fa fa-phone"></i> +1 (913) 449-1623
 
 
