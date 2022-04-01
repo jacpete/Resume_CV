@@ -77,7 +77,7 @@ print_section <- function(position_data, section_id, aside=NULL, asidePos=1, typ
         end,
         glue('{end} - {start}')
       ),
-      description_bullets = map2_chr(!!rlang::sym(cv_resume_description), descriptions, ~if_else(!is.na(.x[[1]]), paste('-', .y, collapse = '\n'), "\n"))
+      description_bullets = map2_chr(!!rlang::sym(cv_resume_description), descriptions, ~if_else(!is.na(.x[[1]]), gsub("\\\nsb-", "\n    - ", paste('-', .y, collapse = '\n')), "\n"))
     ) %>%
     strip_links_from_cols(c('title', 'description_bullets')) %>% 
     mutate_all(~ifelse(is.na(.), 'N/A', .)) 
@@ -174,22 +174,30 @@ filter_descriptions <- function(position_data, type = c("resume","cv")) {
   }) %>% bind_rows()
 }   
 
+
+
 #Creates asides with headings that match the first page asides
-createAside <- function(numBreaks = 0, heading = NULL, body, list = TRUE, bullet = FALSE) {
+createAside <- function(numBreaks = 0, heading = NULL, body, listBody = TRUE, bullet = FALSE) {
   brks <- rep('<br>\n', numBreaks) %>% paste0(collapse = "")
   if (!is.null(heading)) {
-    head <- glue('<h2 class="extra-aside">{heading}</h2>\n')
+    head <- glue::glue('<h2 class="extra-aside">{heading}</h2>\n')
   } else {
     head <- ""
   }
-  if (list) {
-    if (bullet) {
-      midBody <- glue('<li class="extra-aside bullet" > {body}</li>') %>% glue_collapse(sep = "\n")
+  if (listBody) {
+    bulletClass <- if (bullet) " bullet" else ""
+    if (is.list(body) & any(purrr::map_int(body, is.vector))) {
+      # .x = body[[1]]
+      body <- purrr::map_chr(body, ~{
+        if (length(.x) == 1) return(.x)
+        subBulletHtml <- glue::glue('<li class="extra-aside" > {.x[2:length(.x)]}</li>') %>% 
+          glue::glue_collapse(sep = "\n")
+        glue::glue('{.x[1]}\n<ul class="extra-aside skills" > \n{subBulletHtml}\n</ul>')
+      })
     }
-    else {
-      midBody <- glue('<li class="extra-aside" > {body}</li>') %>% glue_collapse(sep = "\n")
-    }
-    bdy <- glue('<ul class="extra-aside" > \n{midBody}\n</ul>')
+    
+    midBody <- glue('<li class="extra-aside{bulletClass}" > {body}</li>') %>% glue_collapse(sep = "\n")
+    bdy <- glue('<ul class="extra-aside skills" > \n{midBody}\n</ul>')
   } else {
     bdy <- glue_collapse(body, sep = "\n")
   }
