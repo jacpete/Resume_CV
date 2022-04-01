@@ -83,6 +83,11 @@ sup {
   font-size: 0.75rem;
 }
 
+.aside h2 {
+  margin-bottom: 0.075in;
+  font-size: 1.1rem;
+}
+
 /* Make little circle outline be a light blue */
 .decorator::after {
   background-color: #08306b;
@@ -116,6 +121,10 @@ ul.extra-aside li{
 /* Shorten upper margin on description list */
 [data-id="main"] ul {
   margin: 0.0in 0 0.08in;
+}
+
+[data-id="main"] li > ul {
+  margin: 0.0in 0 0.00in;
 }
 
 /* Create new skills class to mimic default skills ID from pagedown*/
@@ -156,6 +165,10 @@ li.bullet {
   list-style-type: circle;
 }
 
+li.bullet ul li {
+  list-style-type: circle;
+}
+
 /* Paragraph spacing see fancy paragraph function in parsing_functions.R*/
 p.Reg {
   /* line-height: 1.5rem;  */ /* For between all lines in paragraph*/
@@ -191,3 +204,4 @@ p.disclaimer code{
 div.forcePageBreak {
   break-before: page;
 }
+
