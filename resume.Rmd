@@ -12,6 +12,7 @@ output:
 ---
 
 
+
 ```{r setup, include=FALSE}
 #This Resume/CV was built using custom CSS and Rmd's from https://github.com/nstrayer/cv
 
@@ -77,7 +78,14 @@ iconhgt <- '12pt'
 <i class="fa fa-phone"></i> +1 (913) 449-1623
 
 
-Software Skills {.skills}
+```{css} 
+div#software-experience li {
+    margin-bottom: 0.02in;
+}
+
+```
+
+Software Experience {.skills}
 --------------------------------------------------------------------------------
 
 ```{r, results='asis'}
@@ -93,18 +101,19 @@ tibble::tribble(
   "Git/GitHub",      2016,   5,        TRUE,     paste0("`", as.character(fontawesome::fa("github", fill = "black", height = scaleIconSize(base=iconhgt))), "`{=html}"),
   "Linux/Bash",      2016,   3.5,      TRUE,     paste0("`", as.character(fontawesome::fa("linux", fill = "black", height = scaleIconSize(base=iconhgt))), "`{=html}"),
   "Rmarkdown",       2018,   4,        TRUE,     paste0("`", as.character(fontawesome::fa("markdown", fill = "black", height = scaleIconSize(base=iconhgt))), "`{=html}"),
-  "Python",          2018,   3.5,      TRUE,     as.character(glue::glue('<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="python" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')), 
-  "SQL",             2018,   3.5,      TRUE,     as.character(glue::glue('<img src="https://www.pngrepo.com/png/84894/170/sql-open-file-format.png" alt="sql" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')),
-  "HTML/CSS",        2019,   3,        TRUE,     as.character(glue::glue('<img src="https://www.svgrepo.com/show/43587/css.svg" alt="css" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')),
-  "Shiny",           2020,   3,        TRUE,     as.character(glue::glue('<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/shiny.png" alt="css" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')),
-  "JavaScript",      2020,   2.5,      TRUE,     paste0("`", as.character(fontawesome::fa("r-project", fill = "steelblue", height = scaleIconSize(base=iconhgt))), "`{=html}"),
+  "Python",          2018,   3.5,      TRUE,     as.character(glue::glue('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png" alt="python" height="{scaleIconSize(base=iconhgt, scale =1.4)}" width="{scaleIconSize(base=iconhgt, scale =1.4)}" align="top">')), 
+  "SQL",             2018,   3.5,      TRUE,     paste0("`", as.character(fontawesome::fa("database", fill = "black", height = scaleIconSize(base=iconhgt))), "`{=html}"),
+  "HTML/CSS",        2019,   3,        TRUE,    paste0("`", as.character(fontawesome::fa("html5", fill = "black", height = scaleIconSize(base=iconhgt))), "`{=html}"),
+  "Shiny",           2020,   3,        TRUE,     as.character(glue::glue('<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/shiny.png" alt="css" height="{scaleIconSize(base=iconhgt, scale = 1.6)}" width="{scaleIconSize(base=iconhgt, scale = 1.6)}" align="top">')),
+  "JavaScript",      2020,   2.5,      TRUE,      as.character(glue::glue('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png" alt="javascript" height="{scaleIconSize(base=iconhgt, scale = 1.2)}" width="{scaleIconSize(base=iconhgt, scale = 1.2)}" align="top">')),
   "ArcGIS",          2016,   4,        FALSE,    as.character(glue::glue('<img src="https://grok.lsu.edu/image/46020.png" alt="arcgis" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')),
-  "HPC",             2018,   4,        TRUE,     as.character(glue::glue('<img src="https://img.icons8.com/wired/64/000000/server.png" alt="css" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top"> ')),
+  "HPC",             2018,   4,        TRUE,     as.character(glue::glue('<img src="https://cpb-us-w2.wpmucdn.com/blog.smu.edu/dist/0/141/files/2020/02/OIT-Icon-HPC.svg" alt="css" height="{scaleIconSize(base=iconhgt, scale = 1.6)}" width="{scaleIconSize(base=iconhgt, scale = 1.6)}" align="top"> ')),
   "QGIS",            2017,   3.5,      FALSE,    as.character(glue::glue('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1024px-QGIS_logo_new.svg.png" alt="qgis" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt)}" align="top">')),
-  "Arrow",           2021,   3,        TRUE,     as.character(glue::glue('<img src="https://arrow.apache.org/docs/_static/arrow.png" alt="qgis" height="{scaleIconSize(base=iconhgt)}" width="{scaleIconSize(base=iconhgt, scale = 2)}" align="top">'))
+  "Arrow",           2021,   3,        TRUE,     as.character(glue::glue('<img src="https://arrow.apache.org/docs/_static/arrow.png" alt="qgis" height="{scaleIconSize(base=iconhgt, scale = 1.5)}" width="{scaleIconSize(base=iconhgt, scale = 3)}" align="top">')),
+  "Github Actions CI/CD",           2020,   3,        TRUE,     as.character(glue::glue('<img src="https://avatars.githubusercontent.com/u/44036562?s=200&v=4" alt="qgis" height="{scaleIconSize(base=iconhgt, scale = 1.6)}" width="{scaleIconSize(base=iconhgt, scale = 1.6)}" align="top">'))
 ) %>% dplyr::mutate(
   Years = lubridate::year(Sys.Date()) - Years,
-  Bullet = glue::glue("*  {IconHTML} {Software} [{Years} years]  ")
+  Bullet = glue::glue("*  {IconHTML} {Software} [*{Years} year{ifelse(Years != 1, 's', '')}*]  ")
 ) %>% 
   dplyr::arrange(dplyr::desc(Years), Software) %>% 
   dplyr::filter(Include) %>% 
@@ -114,37 +123,53 @@ tibble::tribble(
 
 
 
-Technical Skills {.skills .bullet}
+
+Linux Skills {.skills .bullet}
 --------------------------------------------------------------------------------
 
-- Data Management
-- Data Cleaning/Unit Testing
-- Data Visualization/Cartography
-- Data Mining
-- Statistical Analysis
-  - GLMs/GLMMs
-  - Categorical Analysis
-  - Multivariate Analysis
-  - Machine Learning
-  - Bayesian Statistics
-- Spatial Analysis
-  - Geospatial Operations
-  - Interpolation
-  - Space Use Models
-  - Movement Models
+- Ubuntu, Fedora, CentOS, Manjaro  
+- Bash scripting
+- Managed web server software including RStudio Server  
+- Managed system services like SSH, FTP, SAMBA  
+- Firewalls and port forwarding with UFW and iptables  
+- Virtualization
 
 
 
-Professional Skills {.skills .bullet}
+
+Universal Skills {.skills .bullet}
 --------------------------------------------------------------------------------
 
-- Critical thinking
-- Independent learning and researching
+- Independent and efficient researcher
+- Problem solving
+- Empathetic and adaptive teacher
+- Technical communication (written and oral)
+- Process enhancer
+- Critical thinker
+- Works effectively in a team
 - Project management
-- Working effectively in a team
-- Collaboration with external agencies and stakeholders
-- Prioritize stakeholder needs in development
-- Oral and written communication adapted to target audiences
+
+
+
+<!-- ```{css}  -->
+<!-- div#active-code-repositories ul { -->
+<!--     margin-top: 0.012in; -->
+<!-- } -->
+<!-- div#active-code-repositories { -->
+<!--     margin-top: 2rem!important; -->
+<!-- } -->
+<!-- ``` -->
+<!-- Active Code Repositories {.bullet} -->
+<!-- -------------------------------------------------------------------------------- -->
+<!-- * Author of organizational packages at Mid-America Regional Council   -->
+<!--     * R: [marcR](https://github.com/MARC-KC/marcR), [marcRviz](https://github.com/MARC-KC/marcRviz), marcRspatial\*, marcRwebscraper\*, marcRpy\* -->
+<!--     * Python: [marcpy](https://github.com/MARC-KC/marcpy), marcpyspatial\*   -->
+<!-- * Lead author for the management of Kansas City's COVID-19 Response data pipeline. -->
+<!--     * [Covid19MARCData](https://github.com/MARC-KC/Covid19MARCData) - R package to allow access to all MARC's public COVID-19 data.   -->
+<!--     * CovidDataEntry\* - Shiny application for managing the entire data pipeline. -->
+<!-- * [esri2sf](https://github.com/yonghah/esri2sf) Collaborator   -->
+
+<!-- \* Private repositories but happy to discuss -->
 
 
 <!-- More info {#more-info} -->
@@ -171,10 +196,8 @@ Jacob Peterson {#title}
 
 ```{r}
 # intro_text <- ""
-# intro_text <- "My career has given me experience applying a broad range of statistical methodologies and honed me into expert in R programming. Academic research has prepared me  to think critically, learn new skills independently and quickly, manage complex projects, and collaborate within teams to achieve results. I enjoy exploring datasets, solving the puzzles that accompany analysis, and transforming raw data into the solutions used to answer important questions.
-# I am currently looking for a data science position that allows me to solve pragmatic problems while leveraging my skills in data management and statistical analysis."
-intro_text <- "My career has given me experience applying a broad range of statistical and spatial methodologies and honed me into expert in R programming and working with a GIS. Academic research has prepared me  to think critically, learn new skills independently and quickly, manage complex projects, and collaborate within teams to achieve results. I enjoy exploring datasets, solving the puzzles that accompany analysis, and transforming raw data into the solutions used to answer important questions.
-I am currently looking for a data science position that allows me to solve pragmatic problems while leveraging my skills in data management, GIS, and statistical analysis."
+
+intro_text <- "I have a passion for process improvement, software environment setup, and technical communication. I am a problem solver, concerned about fixing issues at hand but adamant that solutions should be documented and processes reviewed so that past problems don't continue into the future. While my background has been much more focused in data analysis and data development, I have gained the majority of my experience while working within a variety of Linux distributions. While it hasn't been a rigid learning experience, it has been a constant one; tinkering on a Linux box is a favorite hobby of mine. I have spent countless nights researching and learning many different pieces of the Linux environment including the Linux filesystem, managing a public-facing server, and Bash scripting. While I still know there is a lot more to learn and many more problems to face, I have a proven track record of gaining novel technical skills quickly and have a strong interest in continuing to expand my Linux knowledge to scale up to working in a commercial environment."
 
 intro_text %>% fancyParagraphSpacing()
 ```
@@ -185,40 +208,79 @@ Professional Experience {data-icon=suitcase}
 --------------------------------------------------------------------------------
 
 ```{r}
-asideText <- paste0(createAside(numBreaks = 2,
-                                heading = "Professional Communication",
-                                body = c("I have given talks about my graduate research at five professional conferences in the last two years",
-                                         "I currently have two scientific articles up for peer-review in professional journals"),
-                                list = TRUE, bullet = TRUE),
-                    createAside(numBreaks = 5,
-                                heading = "Additional Interests",
-                                body =  c("Continued Learning - I am always in pursuit of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of my analyses. ",
-                                          "Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists.",
-                                          "FOSS - I am an advocate for free and open source options that allow fully reproducible science and help others learn.",
-                                          "Teaching/Mentoring - I have a passion for helping others discover how scripting and programming can make themselves more efficient."),
-                                list = TRUE, bullet = TRUE),
-                    createAside(numBreaks = 5, heading = "More Info",
-                                body = 'See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for a more complete list of positions and experience.',
-                                list = FALSE),
-                    createAside(numBreaks = 17, 
+asideText <- paste0(
+                  # createAside(numBreaks = 2,
+                  #               heading = "Professional Communication",
+                  #               body = c("I have given talks about my graduate research at five professional conferences in the last two years",
+                  #                        "I currently have two scientific articles up for peer-review in professional journals"),
+                  #               listBody = TRUE, bullet = TRUE),
+                    createAside(numBreaks = 0,
+                                heading = "Values and Interests",
+                                body =  c(
+                                  "Continued Learning - I am always in pursuit of new technology, code libraries, and ideas that can simplify or increase the efficiency of my day to day tasks. If I don't know something give me a couple hours/days and I'll summarize it and teach you.",
+                                  "Teaching/Mentoring - I have a passion for sharing my knowledge with others. The constant distribution and sharing of knowledge is the best tool to elevate all those around you and prevent technical debt.",
+                                  # "Technical communication - I enjoy explaining complex problems, technical solutions, and new statistical methods to non-specialists. The best way to solidify the knowledge you've gained is to teach it to others.",
+                                  "FOSS - I am an advocate for free and open source options that allow fully reproducible science and help others learn. This includes code, educational materials, and blogs."),
+                                listBody = TRUE, bullet = TRUE),
+                    createAside(numBreaks = 2, heading = "Active Code Repositories",
+                               body =  list(
+                                 c(
+                                   'Author of organizational packages at Mid-America Regional Council',
+                                   'R: <a href="https://github.com/MARC-KC/marcR">marcR</a>, <a href="https://github.com/MARC-KC/marcRviz">marcRviz</a>, marcRspatial\\*, marcRwebscraper\\*, marcRpy\\*',
+                                   'Python: <a href="https://github.com/MARC-KC/marcpy">marcpy</a>, marcpyspatial\\*'
+                                 ),
+                                 c(
+                                   'Lead author for the management of Kansas City\'s COVID-19 Response data pipeline.',
+                                    '<a href="https://github.com/MARC-KC/Covid19MARCData">Covid19MARCData</a> - R package to allow access to all MARC\'s public COVID-19 data.',
+                                    'CovidDataEntry\\* - Shiny application for managing the entire data pipeline.'
+                                 ),
+                                 '<a href="https://github.com/yonghah/esri2sf">esri2sf</a> Collaborator'),
+                               listBody = TRUE, bullet = TRUE),
+                    createAside(numBreaks=0, heading = NULL, body = '<p style="color: #777;font-size: 0.7rem;"><span style="font-size:1rem">&#42;</span> Private repositories but happy to discuss</p>',listBody = FALSE, bullet = FALSE),
+                    # createAside(numBreaks = 5, heading = "More Info",
+                    #             body = 'See full CV at [github.com/jacpete/Resume_CV/ cv_Peterson.pdf](https://github.com/jacpete/Resume_CV/raw/master/cv_Peterson.pdf) for a more complete list of positions and experience.',
+                    #             listBody = FALSE),
+                    createAside(numBreaks = 12, 
                                 body = glue(
                                   '<p class="disclaimer">Made w/ <a href="https://github.com/rstudio/pagedown" ><strong>pagedown</strong></a>.</p>
                                   <p class="disclaimer">Source code: <a href="https://github.com/jacpete/Resume_CV">github.com/jacpete/Resume_CV</a>.</p>
                                   <p class="disclaimer">Last updated on {Sys.Date()}.</p>'), 
-                                list = FALSE), collapse = "\n")
+                                listBody = FALSE), collapse = "\n")
 
 # asideText <- createAside(numBreaks = 1,
 #                          heading = "Special Interests",
 #                          body = c("Continued Learning - I am always in search of new methods, code libraries, and ideas that could increase the efficiency or statistical rigor of analysis. ",
 #                                   "Scientific communication - I enjoy explaining complex problems, statistical analyses, and their results to non-specialists.",
 #                                   "FOSS - I am an advocate of free and open source software solutions that are easily accessible for others to use and learn from."),
-#                          list = TRUE)
+#                          listBody = TRUE)
 
 position_data %>% removeAdvisors() %>% 
-  print_section('positions', aside = asideText, asidePos = 6, type = "resume")
+  print_section('positions', type = "resume")
 # position_data %>% removeAdvisors() %>% print_section('positions')
 
 ```
+
+
+
+
+Other Relevant Experience {data-icon=chalkboard-teacher .forcePageBreak}
+--------------------------------------------------------------------------------
+
+```{css}
+div#linux-administration-experience div.details > div {
+  margin-top: 0.025in;
+}
+```
+
+```{r}
+# aside <- createAside(numBreaks = 3,
+#                      body = "I have a passion for teaching others how scripting and programming can make themselves more efficient at their jobs. I am also a advocate for free and open source options that allow fully reproducable science.",
+#                      listBody = FALSE)
+
+# position_data %>% removeAdvisors() %>% print_section('teaching_positions', aside = aside, asidePos = 1, type = "resume")
+position_data %>% removeAdvisors() %>% print_section('extracurricular', aside = asideText, asidePos = 1, type = "resume")
+```
+
 
 
 
@@ -226,21 +288,8 @@ Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
-position_data %>% removeAdvisors() %>% print_section('education', type = "resume")
+position_data %>% removeAdvisors() %>% 
+  print_section('education', type = "resume")
 ```
-
-
-Teaching Experience {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
-
-```{r}
-# aside <- createAside(numBreaks = 3,
-#                      body = "I have a passion for teaching others how scripting and programming can make themselves more efficient at their jobs. I am also a advocate for free and open source options that allow fully reproducable science.",
-#                      list = FALSE)
-
-# position_data %>% removeAdvisors() %>% print_section('teaching_positions', aside = aside, asidePos = 1, type = "resume")
-position_data %>% removeAdvisors() %>% print_section('teaching_positions', type = "resume")
-```
-
 
 
